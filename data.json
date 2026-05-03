@@ -4,7 +4,7 @@
     "influencer": {
       "total_krw": 1000000000.0,
       "spent_krw": 946318876.0,
-      "total_usd": 678552.0,
+      "total_usd": 678550.0,
       "spent_usd": 642125.0
     },
     "doctor": {
@@ -1743,7 +1743,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-03T18:05:29.342235Z",
+    "last_built": "2026-05-03T20:07:38.143724Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
