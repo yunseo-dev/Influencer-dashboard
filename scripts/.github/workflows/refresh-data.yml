@@ -1,0 +1,44 @@
+name: Refresh dashboard data
+
+on:
+  schedule:
+    # Runs every 10 minutes. (GitHub minimum is 5 min; runs are best-effort and may lag during peak hours.)
+    - cron: '*/10 * * * *'
+  workflow_dispatch:  # also lets you run manually from the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_data.py'
+      - '.github/workflows/refresh-data.yml'
+
+permissions:
+  contents: write  # so the action can commit data.json back to the repo
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # No external Python packages needed — script uses only stdlib (urllib + csv).
+
+      - name: Build data.json from Google Sheets
+        run: python scripts/build_data.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data.json)" ]]; then
+            git add data.json
+            git commit -m "chore: refresh data.json [skip ci]"
+            git push
+          else
+            echo "No changes to data.json — skipping commit."
+          fi
