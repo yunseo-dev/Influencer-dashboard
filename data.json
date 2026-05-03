@@ -3,9 +3,9 @@
     "exchange_rate": 1471.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 944771355.0,
+      "spent_krw": 1454583735.0,
       "total_usd": 679662.0,
-      "spent_usd": 642125.0
+      "spent_usd": 988625.0
     },
     "doctor": {
       "total_krw": 220000000.0,
@@ -109,8 +109,8 @@
       "name": "Taeler Watson",
       "clinic": "Premier",
       "city": "San Francisco",
-      "cost_usd": 3500.0,
-      "cost_krw": 5148500.0,
+      "cost_usd": 350000.0,
+      "cost_krw": 514850000.0,
       "views_ig": 32200.0,
       "views_tt": 3700.0,
       "total_views": 35900.0,
@@ -953,7 +953,7 @@
       "tiktok": null,
       "agency": "X",
       "type": "doctor",
-      "stage": "진행 확정"
+      "stage": "게시 완료"
     },
     {
       "name": "Dr. Pavlou",
@@ -1738,7 +1738,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-03T05:35:07.180844Z",
+    "last_built": "2026-05-03T05:41:00.708043Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
