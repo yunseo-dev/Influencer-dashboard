@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glassifier Dashboard — 26.Q1&Q2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Dual-funnel layout — kept inline since it's tightly coupled with the pipeline section */
+  .dual-funnel { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .funnel-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .funnel-block-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 8px; }
+  .funnel-block-title { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .funnel-block-title::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--funnel-color, var(--accent-400)); }
+  .funnel-block-summary { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+  @media (max-width: 900px) { .dual-funnel { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      Glassifier
+      <div class="brand-sub">26.Q1&amp;Q2 Dashboard</div>
+    </div>
+    <ul class="nav">
+      <li><a href="#overview" class="nav-link active">Overview</a></li>
+      <li><a href="#content" class="nav-link">Content Performance</a></li>
+      <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+      <li><a href="#calendar" class="nav-link">Calendar</a></li>
+      <li><a href="#budget" class="nav-link">Budget</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <div>Last sync: <span id="last-sync">loading…</span></div>
+      <div style="margin-top:4px;">Live · auto-refreshes every 10 min</div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="page-header" id="overview">
+      <h1 class="page-title">Influencer Marketing</h1>
+      <div class="page-subtitle">2026 Q1&amp;2 — California Influencer Campaign &amp; Doctor Campaign</div>
+    </div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+    <div class="inbound-section">
+      <div class="inbound-card">
+        <div class="inbound-header">
+          <div>
+            <div class="inbound-title">Inbound Requests · Daily</div>
+            <div class="inbound-stats" id="inbound-stats" style="margin-top:4px;"></div>
+          </div>
+          <div class="seg-toggle">
+            <button class="seg-btn active" data-mode="all">All</button>
+            <button class="seg-btn" data-mode="qualified">Qualified only</button>
+          </div>
+        </div>
+        <div class="inbound-chart-wrap"><canvas id="inboundChart"></canvas></div>
+      </div>
+    </div>
+    <section class="section" id="content">
+      <div class="section-header">
+        <h2 class="section-title">Content Performance</h2>
+        <div class="section-meta">awaiting upload</div>
+      </div>
+      <div class="placeholder">
+        <svg class="placeholder-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V20a2 2 0 01-2 2z" />
+        </svg>
+        <div class="placeholder-title">Awaiting performance data</div>
+        <div class="placeholder-text">Upload the latest content performance report to populate views, engagement rate, and CPV. Data appears here once a file is provided.</div>
+        <div class="placeholder-meta">Last updated: —</div>
+      </div>
+    </section>
+    <section class="section" id="pipeline">
+      <div class="section-header">
+        <h2 class="section-title">Pipeline</h2>
+        <div class="section-meta" id="pipeline-count"></div>
+      </div>
+      <div class="dual-funnel">
+        <div class="funnel-block" style="--funnel-color:#9286d8">
+          <div class="funnel-block-header">
+            <div class="funnel-block-title">California Influencer</div>
+            <div class="funnel-block-summary" id="funnel-ca-summary"></div>
+          </div>
+          <div class="funnel" id="funnel-ca"></div>
+        </div>
+        <div class="funnel-block" style="--funnel-color:#c9bdcd">
+          <div class="funnel-block-header">
+            <div class="funnel-block-title">Doctor Campaign</div>
+            <div class="funnel-block-summary" id="funnel-doc-summary"></div>
+          </div>
+          <div class="funnel" id="funnel-doc"></div>
+        </div>
+      </div>
+      <div class="card" style="padding:14px 18px;margin-bottom:16px;">
+        <div style="font-size:0.78rem;color:var(--text-muted);">Cumulative counts — each row shows how many have reached <em>at least</em> that stage. Doctor campaign skips 예약 완료 and 시술 완료 (no clinic visit). Paired influencers count as 1 unit.</div>
+      </div>
+      <div class="filters">
+        <input type="text" class="search-input" id="filter-search" placeholder="Search by influencer name…" />
+        <select class="filter-select" id="filter-clinic">
+          <option value="">All clinics</option>
+          <option value="Buena">Buena</option>
+          <option value="Medbeauty">Medbeauty</option>
+          <option value="Premier">Premier</option>
+          <option value="Doctor">Doctor</option>
+        </select>
+        <select class="filter-select" id="filter-stage">
+          <option value="">All stages</option>
+          <option value="협의">협의</option>
+          <option value="진행 확정">진행 확정</option>
+          <option value="예약 완료">예약 완료</option>
+          <option value="시술 완료">시술 완료</option>
+          <option value="게시 완료">게시 완료</option>
+          <option value="비용지급 완료">비용지급 완료</option>
+          <option value="취소">취소</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table id="influencer-table">
+          <thead><tr><th>Name</th><th>Campaign / Clinic</th><th>Stage</th><th class="num">Avg Views</th><th>IG / TikTok</th><th>Agency</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="section" id="calendar">
+      <div class="section-header">
+        <h2 class="section-title">Calendar</h2>
+        <div class="section-meta">treatments &amp; uploads · highlighting next 5 days</div>
+      </div>
+      <div class="card">
+        <div class="cal-legend">
+          <div class="legend-item">💉 시술일 (treatment)</div>
+          <div class="legend-item">📤 업로드일 (post upload)</div>
+          <div class="legend-divider"></div>
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--clinic-buena)"></span>Buena</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--clinic-medbeauty)"></span>Medbeauty</div>
+          <div class="legend-item"><span class="legend-swatch" style="background:var(--clinic-premier)"></span>Premier</div>
+          <div class="legend-divider"></div>
+          <div class="legend-item"><span class="legend-swatch" style="background:linear-gradient(135deg,var(--accent-100),var(--accent-200));border:1px solid var(--accent-300);"></span>Next 5 days (urgent)</div>
+        </div>
+        <div class="cal-controls">
+          <button class="cal-btn" id="cal-prev">← Prev</button>
+          <div class="cal-month" id="cal-month"></div>
+          <button class="cal-btn" id="cal-next">Next →</button>
+          <button class="cal-btn" id="cal-today" style="margin-left:auto;">Today</button>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+    </section>
+    <section class="section" id="budget">
+      <div class="section-header">
+        <h2 class="section-title">Budget</h2>
+        <div class="section-meta">divided by campaign · PA excluded</div>
+      </div>
+      <div class="budget-section-header">Committed Budget<span class="budget-section-note">— from 일반 / 닥터 예산 관리 sheets</span></div>
+      <div id="committed-blocks"></div>
+      <div class="budget-section-header">Actual Payments Made<span class="budget-section-note">— from 지출 sheet (% paid = paid ÷ committed spend)</span></div>
+      <div id="actual-blocks"></div>
+      <div class="charts-row">
+        <div class="chart-card"><div class="chart-title">Spend by campaign (committed)</div><div class="chart-wrap"><canvas id="pieChart"></canvas></div></div>
+        <div class="chart-card"><div class="chart-title">Payments by month</div><div class="chart-wrap"><canvas id="paymentsChart"></canvas></div></div>
+      </div>
+      <div class="card">
+        <div class="chart-title">Payments — sorted by deadline (upcoming first)</div>
+        <div class="filters">
+          <select class="filter-select" id="payment-filter">
+            <option value="all">All payments</option>
+            <option value="upcoming">Upcoming only</option>
+            <option value="due-soon">Due in next 10 days</option>
+            <option value="paid">Paid</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table id="payments-table">
+            <thead><tr><th>Influencer</th><th>Type</th><th>Upload date</th><th>Deadline</th><th class="num">Amount (KRW)</th><th class="num">Amount (USD)</th><th>Status</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <div class="modal-title" id="modal-title"></div>
+    <div id="modal-content"></div>
+  </div>
+</div>
+<script src="chartjs.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
