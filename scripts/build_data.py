@@ -398,7 +398,7 @@ def parse_calendar(rows: list[list[str]]) -> list[dict]:
         '2026-05': (9, 16),
         '2026-06': (17, 24),
     }
-    date_rows = [3, 5, 7, 9, 11]
+    date_rows = [2, 4, 6, 8, 10, 12]
 
     for ym, (col_start, col_end) in month_cols.items():
         year, month = int(ym[:4]), int(ym[5:7])
