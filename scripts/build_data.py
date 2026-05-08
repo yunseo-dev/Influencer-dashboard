@@ -474,7 +474,7 @@ def parse_leads(rows: list[list[str]]) -> tuple[int, int, list[dict]]:
         if not is_us:
             continue
         total += 1
-        is_q = get('Qualified').upper() == 'TRUE'
+        is_q = get('Qualified').upper() == 'true'
         if is_q:
             qualified += 1
         if date_str not in timeline_counter:
