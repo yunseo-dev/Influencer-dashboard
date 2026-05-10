@@ -118,7 +118,7 @@
       "tiktok": "@sarahbebelle",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Cynthia Huang Wang",
@@ -178,7 +178,7 @@
       "tiktok": "@stephkimmi",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Iman Gharram",
@@ -298,7 +298,7 @@
       "tiktok": "@raquelamdal",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Julia White",
@@ -313,7 +313,7 @@
       "tiktok": "@julia.whiteeee7",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Nica phan",
@@ -343,7 +343,7 @@
       "tiktok": null,
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "게시 완료"
     },
     {
       "name": "Gabriella Juliana Galdorise",
@@ -358,7 +358,7 @@
       "tiktok": "@_gigijuliana",
       "agency": null,
       "type": "influencer",
-      "stage": "예약 완료"
+      "stage": "시술 완료"
     },
     {
       "name": "Sayeh Soltani",
@@ -373,7 +373,7 @@
       "tiktok": "@sayehsoltani",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Alexa Mal",
@@ -643,7 +643,7 @@
       "tiktok": "@rogerwh0",
       "agency": "rare global",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Jenna Barclay",
@@ -673,7 +673,7 @@
       "tiktok": "@alyssaantocii",
       "agency": "CMG Talent",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Brandon Yoon",
@@ -718,7 +718,7 @@
       "tiktok": "@miahowerton",
       "agency": "Idols + icons",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Rachel Barnes",
@@ -733,7 +733,7 @@
       "tiktok": "@rocky_barnes",
       "agency": "Becca Mgmt Team",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Allison Wong",
@@ -748,7 +748,7 @@
       "tiktok": "@ally_wong",
       "agency": "Digital Brand Architects",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "HyunJi Kim",
@@ -763,7 +763,7 @@
       "tiktok": "@sallykim7_",
       "agency": "Mirae Mgmt Team",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Yasmin",
@@ -853,7 +853,7 @@
       "tiktok": "@anastasile",
       "agency": "globaldigital.agency",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Aylen Park",
@@ -1524,7 +1524,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-10T14:30:36.658182Z",
+    "last_built": "2026-05-10T14:32:28.228117Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
