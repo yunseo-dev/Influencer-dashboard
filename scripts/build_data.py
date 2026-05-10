@@ -285,7 +285,7 @@ def parse_doctor_budget(rows: list[list[str]]) -> tuple[dict, list[dict]]:
         cost_usd = to_float(get('비용')) or 0
         achieved_views = to_float(get('달성 조회수')) or 0
         median_views = to_float(get('중앙 조회수')) or 0
-        posted = is_truthy(get('게시 여부'))
+        posted = is_truthy((row[13] if len(row) > 13 else ''))
 
         doctors.append({
             'name': name,
@@ -563,7 +563,10 @@ def build():
         r = resolve_name(raw_name, inf_names) or raw_name
         paid_resolved.add(r)
 
-
+    missing_doctors = [d['name'] for d in doctors if d['name'] not in paid_resolved and d['name'] not in inf_names]
+    print(f'  Doctor names in 닥터 sheet: {[d["name"] for d in doctors]}')
+    print(f'  paid_resolved: {sorted(paid_resolved)}')
+  
     # Stage logic — cumulative, highest reached wins
     NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
     for p in influencers:
