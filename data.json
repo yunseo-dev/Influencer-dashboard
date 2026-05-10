@@ -1032,6 +1032,30 @@
       "amount_usd": 10000.0,
       "amount_krw": 14620000.0,
       "is_paid": true
+    },
+    {
+      "name": "pavlou",
+      "type": "닥터",
+      "campaign": "Doctor",
+      "manager": "왕자문",
+      "upload_date": "2026-03-07",
+      "deadline": "2026-04-07",
+      "paid_date": "2026-03-24",
+      "amount_usd": 425.0,
+      "amount_krw": 621350.0,
+      "is_paid": true
+    },
+    {
+      "name": "Walter",
+      "type": "닥터",
+      "campaign": "Doctor",
+      "manager": "왕자문",
+      "upload_date": "2026-03-06",
+      "deadline": "2026-04-06",
+      "paid_date": "2026-03-26",
+      "amount_usd": 25000.0,
+      "amount_krw": 36550000.0,
+      "is_paid": true
     }
   ],
   "events": [
@@ -1529,7 +1553,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-10T14:47:11.294310Z",
+    "last_built": "2026-05-10T14:57:56.727452Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
