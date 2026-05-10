@@ -325,6 +325,8 @@ def parse_before_treatment(rows: list[list[str]]) -> dict[str, str]:
             continue
         if not v1 or v1 == '인플루언서 이름':
             continue
+        if v0.startswith('ㄴ'):
+            continue
         if is_truthy(v4):
             confirmed[v1] = current_clinic
     return confirmed
@@ -342,6 +344,9 @@ def parse_after_treatment(rows: list[list[str]]) -> tuple[set[str], set[str]]:
         v2 = (row[2] if len(row) > 2 else '').strip()
         v4 = (row[4] if len(row) > 4 else '').strip()
         if not v1 or v1 == '인플루언서 이름':
+            continue
+        v0 = (row[0] if len(row) > 0 else '').strip()
+        if v0.startswith('ㄴ'):
             continue
         if is_truthy(v4):
             treatment_done.add(v1)
