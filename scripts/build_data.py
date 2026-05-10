@@ -576,6 +576,9 @@ def build():
     print(f'  treatment_resolved count: {len(treatment_resolved)}')
     print(f'  upload_resolved count: {len(upload_resolved)}')
     print(f'  paid_resolved count: {len(paid_resolved)}')
+    print(f'  inf_names count: {len(inf_names)}')
+    for p in influencers:
+        print(f'    {p["name"]} | booking:{p["name"] in booking_resolved} | treatment:{p["name"] in treatment_resolved}')
 
     # Stage logic — cumulative, highest reached wins
     NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
