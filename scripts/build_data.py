@@ -63,6 +63,13 @@ MANUAL_NAME_MAP = {
     'Claire MJ Park': 'Claire MJ Park',
     'Alyssa Antoci': 'Alyssa Antoci',
     'HyunJi Kim': 'HyunJi Kim',
+    'Charles Puza': 'Dr. Charles',
+    'Luke Maxfield': 'Dr. Luke Maxfield',
+    'Madalyn Nguyen': 'Dr. Madalyn Nguyen',
+    'Miranda Wilson': 'Miranda Wilson',
+    'Walter': 'Dr. Walter',
+    'pavlou': 'Dr. Pavlou',
+    'Anil Rajani': 'Dr Anil Rajani',
 }
 
 PAIR_SECONDARIES = {'David Cho', 'Sonia Lee'}
@@ -563,10 +570,6 @@ def build():
         r = resolve_name(raw_name, inf_names) or raw_name
         paid_resolved.add(r)
 
-    missing_doctors = [d['name'] for d in doctors if d['name'] not in paid_resolved and d['name'] not in inf_names]
-    print(f'  Doctor names in 닥터 sheet: {[d["name"] for d in doctors]}')
-    print(f'  paid_resolved: {sorted(paid_resolved)}')
-  
     # Stage logic — cumulative, highest reached wins
     NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
     for p in influencers:
