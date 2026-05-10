@@ -57,7 +57,7 @@ MANUAL_NAME_MAP = {
     'Stephani kim': 'Stephani kim',
     'Sonia Lee': 'Aylen Park',
     'David Cho': 'Hana Sim & David',
-    'Hana Sim': 'Hana Sim & David',
+    'Hana Sim': 'Hana Sim',
     'Mia Howerton': 'Mia Howerton',
     'Sarah Isabelle Laguda': 'Sarah Isabelle Laguda',
     'Claire MJ Park': 'Claire MJ Park',
