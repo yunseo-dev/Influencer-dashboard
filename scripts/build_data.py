@@ -46,23 +46,23 @@ SHEET_URLS = {
 # Manual name map: Before/After 시술 names → 일반 예산 관리 names
 # (ㄴ-prefixed pair secondaries are also handled here)
 MANUAL_NAME_MAP = {
-    'Gabriella Juliana Galdorise': 'GiGi Juliana',
-    'Raquel Amdal': 'Raquel',
-    'Rachel Barnes': 'Rocky Barnes',
-    'Sayeh Soltani': 'sayehsoltani',
-    'Allison Wong': 'Ally Wong',
-    'Julia White': 'Julia',
-    'Roger Ma': 'Roger',
-    'Anastasia Tupitsyna': 'Anastasia',
-    'Stephani kim': 'Steph kimmi',
-    'Sonia Lee': 'Aylen Park',          # paired
-    'David Cho': 'Hana Sim & David',    # paired
+    'Gabriella Juliana Galdorise': 'Gabriella Juliana Galdorise',
+    'Raquel Amdal': 'Raquel Amdal',
+    'Rachel Barnes': 'Rachel Barnes',
+    'Sayeh Soltani': 'Sayeh Soltani',
+    'Allison Wong': 'Allison Wong',
+    'Julia White': 'Julia White',
+    'Roger Ma': 'Roger Ma',
+    'Anastasia Tupitsyna': 'Anastasia Tupitsyna',
+    'Stephani kim': 'Stephani kim',
+    'Sonia Lee': 'Aylen Park',
+    'David Cho': 'Hana Sim & David',
     'Hana Sim': 'Hana Sim & David',
-    'Mia Howerton': 'Mia howerton',
-    'Sarah Isabelle Laguda': 'Sarah Isabelle',
-    'Claire MJ Park': 'Claire Park',
-    'Alyssa Antoci': 'alyssa antoci',
-    'HyunJi Kim': 'Sally Hyunji Kim',
+    'Mia Howerton': 'Mia Howerton',
+    'Sarah Isabelle Laguda': 'Sarah Isabelle Laguda',
+    'Claire MJ Park': 'Claire MJ Park',
+    'Alyssa Antoci': 'Alyssa Antoci',
+    'HyunJi Kim': 'HyunJi Kim',
 }
 
 PAIR_SECONDARIES = {'David Cho', 'Sonia Lee'}
