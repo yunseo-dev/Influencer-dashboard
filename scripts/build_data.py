@@ -490,11 +490,11 @@ def parse_leads(rows: list[list[str]]) -> tuple[int, int, list[dict]]:
         date_str = to_iso_date(timestamp)
         if not date_str:
             continue
-        is_us = get('COUNTRY').upper() == 'US'
+        is_us = (row[20] if len(row) > 20 else '').strip().upper() == 'US'
         if not is_us:
             continue
         total += 1
-        is_q = get('Qualified').upper() == 'true'
+        is_q = '✅' in (row[19] if len(row) > 19 else '')
         if is_q:
             qualified += 1
         if date_str not in timeline_counter:
