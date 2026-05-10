@@ -330,17 +330,24 @@ def parse_before_treatment(rows: list[list[str]]) -> dict[str, str]:
     return confirmed
 
 
-def parse_after_treatment(rows: list[list[str]]) -> set[str]:
-    """Returns set of names where 시술 완료 (col 4) = TRUE."""
-    done = set()
+def parse_after_treatment(rows: list[list[str]]) -> tuple[set[str], set[str]]:
+    """Returns (treatment_done, upload_done).
+    treatment_done: col E (시술 완료) = TRUE
+    upload_done:    col C (업로드) = TRUE
+    """
+    treatment_done = set()
+    upload_done = set()
     for row in rows:
         v1 = (row[1] if len(row) > 1 else '').strip()
+        v2 = (row[2] if len(row) > 2 else '').strip()
         v4 = (row[4] if len(row) > 4 else '').strip()
         if not v1 or v1 == '인플루언서 이름':
             continue
         if is_truthy(v4):
-            done.add(v1)
-    return done
+            treatment_done.add(v1)
+        if is_truthy(v2):
+            upload_done.add(v1)
+    return treatment_done, upload_done
 
 
 def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
@@ -371,6 +378,7 @@ def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
         upload_date = to_iso_date(get('콘텐츠 업로드일'))
         deadline = to_iso_date(get('지급기한'))
         paid_date = to_iso_date(get('지출날짜'))
+        jgyeol = is_truthy((row[4] if len(row) > 4 else ''))  # col E: 지결 승인 완료
         influencer_type = get('인플루언서 유형')
         is_doctor = '닥터' in influencer_type
 
@@ -384,7 +392,7 @@ def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
             'paid_date': paid_date,
             'amount_usd': amount_usd,
             'amount_krw': amount_usd * exchange_rate,
-            'is_paid': bool(paid_date),
+            'is_paid': jgyeol,
         })
     return payments
 
@@ -519,57 +527,73 @@ def build():
         d['cost_krw'] = d['cost_usd'] * exchange_rate
 
     # Parse before / after / payments
-    before_confirmed = parse_before_treatment(raw['before_treatment'])  # name → clinic
-    after_done = parse_after_treatment(raw['after_treatment'])
+    before_confirmed = parse_before_treatment(raw['before_treatment'])
+    treatment_done, upload_done = parse_after_treatment(raw['after_treatment'])
     payments = parse_payments(raw['payments'], exchange_rate)
 
-    # Build set of names with payments uploaded / paid (for stage detection)
-    posted_names_raw = {p['name'] for p in payments if p.get('upload_date')}
-    paid_names_raw = {p['name'] for p in payments if p.get('paid_date')}
+    # Names approved for payment (지결 승인 완료 = TRUE in 지출)
+    paid_names_raw = {p['name'] for p in payments if p.get('is_paid')}
 
-    # Resolve names from Before/After/지출 → 일반 예산 관리 names
-    booking_resolved: dict[str, str] = {}  # canonical_name → clinic
+    # Resolve cross-sheet names → canonical 일반 예산 관리 names
+    booking_resolved: dict[str, str] = {}
     for raw_name, clinic in before_confirmed.items():
         resolved = resolve_name(raw_name, inf_names)
         if resolved:
             booking_resolved[resolved] = clinic
 
     treatment_resolved = set()
-    for raw_name in after_done:
+    for raw_name in treatment_done:
         resolved = resolve_name(raw_name, inf_names)
         if resolved:
             treatment_resolved.add(resolved)
 
-    posted_resolved = set()
+    upload_resolved = set()
+    for raw_name in upload_done:
+        resolved = resolve_name(raw_name, inf_names)
+        if resolved:
+            upload_resolved.add(resolved)
+
     paid_resolved = set()
-    for raw_name in posted_names_raw:
-        r = resolve_name(raw_name, inf_names) or raw_name
-        posted_resolved.add(r)
     for raw_name in paid_names_raw:
         r = resolve_name(raw_name, inf_names) or raw_name
         paid_resolved.add(r)
 
-    # Determine stage for each influencer
+    # Stage logic — cumulative, highest reached wins
+    NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
     for p in influencers:
         name = p['name']
-        if p['raw_status'] == '취소':
+        status = p['raw_status'].strip()
+
+        if status == '취소':
             p['stage'] = '취소'
+        elif status in NOT_CONFIRMED or not status:
+            p['stage'] = '협의'
         else:
+            # Start at 진행 확정 and escalate
             stage = '진행 확정'
             if name in booking_resolved:
                 stage = '예약 완료'
-                # also override clinic if more specific
                 if booking_resolved[name]:
                     p['clinic'] = booking_resolved[name]
             if name in treatment_resolved:
                 stage = '시술 완료'
-            if name in posted_resolved:
+            if name in upload_resolved:
                 stage = '게시 완료'
             if name in paid_resolved:
                 stage = '비용지급 완료'
             p['stage'] = stage
-        # Drop the temp field
+
         p.pop('raw_status', None)
+
+    # Doctors: 진행 확정 / 게시 완료 / 비용지급 완료 (no clinic visit)
+    for d in doctors:
+        if d['name'] in paid_resolved:
+            d['stage'] = '비용지급 완료'
+        elif d.get('posted'):
+            d['stage'] = '게시 완료'
+        else:
+            d['stage'] = '진행 확정'
+        d.pop('posted', None)
 
     # Doctors: only 진행 확정 / 게시 완료 / 비용지급 완료 (no clinic visit)
     for d in doctors:
