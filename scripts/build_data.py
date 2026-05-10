@@ -547,6 +547,12 @@ def build():
         if resolved:
             treatment_resolved.add(resolved)
 
+  # DEBUG — remove after fixing
+    unmatched_booking = [n for n in before_confirmed if resolve_name(n, inf_names) is None]
+    unmatched_treatment = [n for n in treatment_done if resolve_name(n, inf_names) is None]
+    print(f'  Unmatched Before 시술: {unmatched_booking}')
+    print(f'  Unmatched After 시술:  {unmatched_treatment}')
+
     upload_resolved = set()
     for raw_name in upload_done:
         resolved = resolve_name(raw_name, inf_names)
