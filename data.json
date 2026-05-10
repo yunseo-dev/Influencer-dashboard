@@ -148,7 +148,7 @@
       "tiktok": "@taelerwatson",
       "agency": "CMG Talent",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Alyssa Lynch",
@@ -283,7 +283,7 @@
       "tiktok": "@officialjulissab",
       "agency": "dulcedo talent agent",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Raquel Amdal",
@@ -508,7 +508,7 @@
       "tiktok": "@sonyased5",
       "agency": "Digital Brand Architects",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Gilly",
@@ -658,7 +658,7 @@
       "tiktok": "@jennaabarclay",
       "agency": "Small Screen INC",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Alyssa Antoci",
@@ -688,7 +688,7 @@
       "tiktok": "@byo0n",
       "agency": null,
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Mei Leung",
@@ -808,7 +808,7 @@
       "tiktok": "@sarahesri",
       "agency": "Hesri Mgmt",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Yuri Lee",
@@ -823,7 +823,7 @@
       "tiktok": "@yurileeeee",
       "agency": null,
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Hana Sim",
@@ -897,7 +897,7 @@
       "tiktok": null,
       "agency": "gersh",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "진행 확정"
     },
     {
       "name": "Dr. Charles",
@@ -911,7 +911,7 @@
       "tiktok": null,
       "agency": "melrose marketing",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "진행 확정"
     },
     {
       "name": "Dr. Luke Maxfield",
@@ -925,7 +925,7 @@
       "tiktok": null,
       "agency": "melrose marketing",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "진행 확정"
     },
     {
       "name": "Miranda Wilson",
@@ -967,7 +967,7 @@
       "tiktok": null,
       "agency": "X",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "진행 확정"
     },
     {
       "name": "Dr. Walter",
@@ -981,7 +981,7 @@
       "tiktok": null,
       "agency": "MIONE",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "진행 확정"
     }
   ],
   "payments": [
@@ -1524,7 +1524,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-10T11:15:02.816534Z",
+    "last_built": "2026-05-10T14:00:48.513207Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
