@@ -552,12 +552,6 @@ def build():
         if resolved:
             treatment_resolved.add(resolved)
 
-  # DEBUG — remove after fixing
-    unmatched_booking = [n for n in before_confirmed if resolve_name(n, inf_names) is None]
-    unmatched_treatment = [n for n in treatment_done if resolve_name(n, inf_names) is None]
-    print(f'  Unmatched Before 시술: {unmatched_booking}')
-    print(f'  Unmatched After 시술:  {unmatched_treatment}')
-
     upload_resolved = set()
     for raw_name in upload_done:
         resolved = resolve_name(raw_name, inf_names)
@@ -569,18 +563,6 @@ def build():
         r = resolve_name(raw_name, inf_names) or raw_name
         paid_resolved.add(r)
 
-  # DEBUG
-    print(f'  Before 시술 confirmed (예약 확정=TRUE): {len(before_confirmed)} names')
-    print(f'  Before names: {sorted(before_confirmed.keys())}')
-    print(f'  booking_resolved: {sorted(booking_resolved.keys())}')
-    print(f'  treatment_resolved count: {len(treatment_resolved)}')
-    print(f'  upload_resolved count: {len(upload_resolved)}')
-    print(f'  paid_resolved count: {len(paid_resolved)}')
-    print(f'  inf_names count: {len(inf_names)}')
-    for p in influencers:
-        print(f'    {p["name"]} | booking:{p["name"] in booking_resolved} | treatment:{p["name"] in treatment_resolved}')
-    missing = [n for n in booking_resolved if n not in inf_names]
-    print(f'  booking_resolved not in inf_names: {missing}')
 
     # Stage logic — cumulative, highest reached wins
     NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
