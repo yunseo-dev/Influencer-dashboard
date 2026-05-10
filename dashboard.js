@@ -116,7 +116,7 @@ function renderKPIs() {
     { label: 'Total Views', value: '—', sub: 'Pending upload', pending: true },
     { label: 'Engagement Rate', value: '—', sub: 'Pending upload', pending: true },
     { label: 'Avg CPV', value: '—', sub: 'Pending upload', pending: true },
-    { label: 'Inbound Requests', value: fmtNum(DATA.inbound_qualified), sub: 'Tier 4 + qualified · ' + DATA.inbound_total + ' total' },
+   { label: 'Inbound Requests', value: fmtNum(DATA.inbound_total), sub: DATA.inbound_qualified + ' qualified' },
     { label: 'Budget Burn', value: fmtPct(burnPct), sub: fmtKRWshort(totalSpentKRW) + ' of ' + fmtKRWshort(totalBudgetKRW) },
     { label: 'Paid Rate', value: fmtPct(paidRate), sub: fmtKRWshort(totalPaidKRW) + ' paid of committed' },
     { label: 'Active Pipeline', value: fmtNum(activePipeline), sub: fmtNum(totalContracted) + ' total contracted' },
