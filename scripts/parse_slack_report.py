@@ -80,7 +80,7 @@ RE_POST = re.compile(
     r'\s*좋아요\s*([\d,]+|-)\s*\|'                  # likes (may be "-")
     r'\s*댓글\s*([\d,]+)\s*\|'                      # comments
     r'\s*저장\s*([\d,]+)\s*\|'                      # saves
-    r'\s*CPV\s*(?:\$([\d.]+)|\(데이터 없음\))\s*\|' # CPV or N/A
+    r'\s*CPV\s*(?:[$]([\d.]+)|\(데이터 없음\))\s*\|' # CPV or N/A
     r'\s*\[Link\]\((https?://\S+)\)'                # link URL
 )
 
