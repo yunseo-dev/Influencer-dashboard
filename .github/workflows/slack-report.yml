@@ -1,0 +1,57 @@
+name: Ingest Slack weekly report
+
+# Triggered by an incoming webhook POST from Slack.
+# Slack sends to:  https://api.github.com/repos/<owner>/<repo>/dispatches
+# with event_type: "slack-report" and the message text in client_payload.text
+#
+# Set-up checklist (do this once):
+#   1. Create a GitHub Personal Access Token (PAT) with repo scope → Settings > Developer settings > PATs
+#   2. Add it to your repo secrets as:  Settings > Secrets > Actions > New secret
+#      Name: SLACK_WEBHOOK_TOKEN   Value: <your PAT>
+#   3. In Slack: add a Workflow Builder step (or use the Outgoing Webhooks app)
+#      that POSTs the message to the dispatch URL below whenever a message is
+#      posted to #03_전략_mkt-report.
+#      See SLACK_SETUP.md for full Slack configuration steps.
+
+on:
+  repository_dispatch:
+    types: [slack-report]
+  workflow_dispatch:           # lets you test manually from the Actions tab
+    inputs:
+      message:
+        description: 'Paste the full Slack report text here to test manually'
+        required: true
+
+permissions:
+  contents: write              # so the action can commit data.json back to the repo
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # For repository_dispatch: message is in github.event.client_payload.text
+      # For workflow_dispatch (manual test): message is in github.event.inputs.message
+      - name: Parse and merge Slack report
+        env:
+          SLACK_MESSAGE: ${{ github.event.client_payload.text || github.event.inputs.message }}
+        run: python scripts/parse_slack_report.py
+
+      - name: Commit & push updated data.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain data.json)" ]]; then
+            git add data.json
+            git commit -m "chore: update content_performance from Slack report [skip ci]"
+            git push
+          else
+            echo "No changes to data.json — skipping commit."
+          fi
