@@ -158,7 +158,38 @@ def parse_report(text: str) -> dict:
       "doctor": { ... same structure ... }
     }
     """
+    # Normalize: Slack messages often arrive as one long line when pasted into
+    # text inputs (Workflow Builder strips real newlines). Insert newlines
+    # before each known structural marker so we can iterate line by line.
     text = text.replace('\\n', '\n')
+
+    # Split before each structural section marker. Order matters — more
+    # specific patterns first so we don't split mid-phrase.
+    structural_markers = [
+        '주간회의 인플루언서 리포트',
+        '두 캠페인 합산 KPI',
+        '총 조회수:',
+        '총 Engagement Rate:',
+        '평균 CPV:',
+        '캘리포니아 |',
+        '닥터 인플루언서 |',
+        '신규 게시물',
+        '전체 게시물 누적 목록',
+    ]
+    for mk in structural_markers:
+        text = text.replace(mk, '\n' + mk)
+
+    # Per-campaign stats line starts with "조회수: " (with colon-space) — only
+    # match it when followed by digits and another pipe so it doesn't collide
+    # with post lines (which use "조회수 " without a colon)
+    text = re.sub(r'(?<!\n)(조회수:\s*[\d,]+\s*\|)', r'\n\1', text)
+
+    # Per-campaign ER+CPV line starts with "Engagement Rate: " followed by digits
+    text = re.sub(r'(?<!\n)(Engagement Rate:\s*[\d.]+%\s*\|)', r'\n\1', text)
+
+    # Each @handle starts a new post line
+    text = re.sub(r'\s+(@\S+\s*\|\s*\d{2}\.\d{2})', r'\n\1', text)
+
     lines = text.splitlines()
 
     # --- Report date ---
