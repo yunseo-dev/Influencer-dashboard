@@ -158,6 +158,7 @@ def parse_report(text: str) -> dict:
       "doctor": { ... same structure ... }
     }
     """
+    text = text.replace('\\n', '\n')
     lines = text.splitlines()
 
     # --- Report date ---
