@@ -1558,7 +1558,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-12T01:14:34.394442Z",
+    "last_built": "2026-05-12T01:20:53.269333Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
@@ -1566,7 +1566,7 @@
   },
   "content_performance": {
     "report_date": "2026-05-11",
-    "last_updated": "2026-05-12T01:14:34.393886Z",
+    "last_updated": "2026-05-12T01:20:53.268774Z",
     "combined": {
       "views": 940555,
       "er": 1.98,
