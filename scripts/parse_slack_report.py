@@ -81,7 +81,9 @@ RE_POST = re.compile(
     r'\s*댓글\s*([\d,]+)\s*\|'                      # comments
     r'\s*저장\s*([\d,]+)\s*\|'                      # saves
     r'\s*CPV\s*(?:[$]([\d.]+)|\(데이터 없음\))\s*\|' # CPV or N/A
-    r'\s*\[Link\]\((https?://\S+)\)'                # link URL
+    r'\s*(?:\[Link\]\((https?://\S+?)\)|'           # [Link](url) format
+    r'<(?:_+)?(https?://\S+?)(?:_+)?\|[^>]*>|'      # Slack <url|text> format
+    r'Link)'                                         # plain "Link" with no URL
 )
 
 
@@ -122,17 +124,20 @@ def parse_post_line(line: str, is_new: bool) -> dict | None:
     m = RE_POST.search(line)
     if not m:
         return None
-    handle, date, views, likes, comments, saves, cpv, link = m.groups()
+    handle, date, views, likes, comments, saves, cpv, link_md, link_slack = m.groups()
+    # Pick whichever link format matched
+    link = link_md or link_slack or ''
+    safe_link = link.strip() if link else ''
     return {
         'handle':   handle.strip(),
-        'date':     date.strip(),           # MM.DD format
+        'date':     date.strip(),
         'views':    parse_int(views),
         'likes':    parse_int(likes),
         'comments': parse_int(comments),
         'saves':    parse_int(saves),
-        'cpv':      parse_float(cpv),       # None if 데이터 없음
-        'platform': detect_platform(link),
-        'link':     link.strip(),
+        'cpv':      parse_float(cpv),
+        'platform': detect_platform(safe_link) if safe_link else 'UNK',
+        'link':     safe_link,
         'is_new':   is_new,
     }
 
