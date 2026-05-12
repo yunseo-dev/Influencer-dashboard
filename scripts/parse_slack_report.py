@@ -416,6 +416,9 @@ def main() -> None:
 
     print(f'[{datetime.utcnow().isoformat()}Z] Parsing Slack report...')
     print(f'  Message length: {len(message)} chars')
+    print('───── RAW MESSAGE START ─────')
+    print(message)
+    print('───── RAW MESSAGE END ─────')
 
     try:
         parsed = parse_report(message)
