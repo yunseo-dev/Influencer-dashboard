@@ -1558,7 +1558,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-12T05:14:56.888101Z",
+    "last_built": "2026-05-12T06:44:39.951899Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
@@ -1566,7 +1566,7 @@
   },
   "content_performance": {
     "report_date": "2026-05-11",
-    "last_updated": "2026-05-12T05:14:56.887591Z",
+    "last_updated": "2026-05-12T06:44:39.951317Z",
     "combined": {
       "views": 940555,
       "er": 1.98,
@@ -1579,7 +1579,152 @@
       "comments": 365,
       "er": null,
       "cpv": null,
-      "posts": []
+      "posts": [
+        {
+          "handle": "@sarahbebelle",
+          "date": "05.10",
+          "views": 854,
+          "likes": 93,
+          "comments": 1,
+          "saves": 10,
+          "cpv": null,
+          "platform": "UNK",
+          "link": "",
+          "is_new": true
+        },
+        {
+          "handle": "@skincarewithyuri",
+          "date": "05.08",
+          "views": 74675,
+          "likes": 851,
+          "comments": 37,
+          "saves": 0,
+          "cpv": null,
+          "platform": "UNK",
+          "link": "",
+          "is_new": true
+        },
+        {
+          "handle": "@yurileeeee",
+          "date": "05.08",
+          "views": 6725,
+          "likes": 274,
+          "comments": 10,
+          "saves": 54,
+          "cpv": null,
+          "platform": "UNK",
+          "link": "",
+          "is_new": true
+        },
+        {
+          "handle": "@officialjulissab",
+          "date": "05.08",
+          "views": 1703,
+          "likes": 141,
+          "comments": 3,
+          "saves": 49,
+          "cpv": 2.06,
+          "platform": "UNK",
+          "link": "",
+          "is_new": true
+        },
+        {
+          "handle": "@sonyased5",
+          "date": "05.07",
+          "views": 18800,
+          "likes": 689,
+          "comments": 16,
+          "saves": 56,
+          "cpv": 0.34,
+          "platform": "UNK",
+          "link": "",
+          "is_new": true
+        },
+        {
+          "handle": "@sarahlaguda",
+          "date": "05.11",
+          "views": 2506,
+          "likes": 110,
+          "comments": 4,
+          "saves": 0,
+          "cpv": null,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@sarahesri",
+          "date": "05.05",
+          "views": 74500,
+          "likes": 2253,
+          "comments": 31,
+          "saves": 297,
+          "cpv": 0.19,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@jennaabarclay",
+          "date": "05.04",
+          "views": 6213,
+          "likes": 330,
+          "comments": 7,
+          "saves": 19,
+          "cpv": 1.13,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@taelerwatson",
+          "date": "05.04",
+          "views": 1055,
+          "likes": 130,
+          "comments": 12,
+          "saves": 9,
+          "cpv": 1.66,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@clairemjpark",
+          "date": "05.04",
+          "views": 19487,
+          "likes": null,
+          "comments": 35,
+          "saves": 0,
+          "cpv": 0.44,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@byo0n",
+          "date": "05.04",
+          "views": 98400,
+          "likes": 3358,
+          "comments": 62,
+          "saves": 319,
+          "cpv": 0.08,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@_brandonyoon_",
+          "date": "05.04",
+          "views": 45483,
+          "likes": 1844,
+          "comments": 24,
+          "saves": 0,
+          "cpv": 0.16,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        }
+      ]
     },
     "doctor": {
       "views": 200795,
@@ -1588,7 +1733,92 @@
       "comments": 246,
       "er": null,
       "cpv": null,
-      "posts": []
+      "posts": [
+        {
+          "handle": "@dr.ljmaxfield",
+          "date": "04.09",
+          "views": 45892,
+          "likes": 562,
+          "comments": 23,
+          "saves": 0,
+          "cpv": 0.22,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd1",
+          "date": "03.20",
+          "views": 17000,
+          "likes": 804,
+          "comments": 31,
+          "saves": 450,
+          "cpv": 1.0,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd",
+          "date": "03.20",
+          "views": 57163,
+          "likes": 1378,
+          "comments": 83,
+          "saves": 0,
+          "cpv": 0.3,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.09",
+          "views": 3154,
+          "likes": 55,
+          "comments": 3,
+          "saves": 41,
+          "cpv": 0.07,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@drmadalyn",
+          "date": "03.09",
+          "views": 9239,
+          "likes": 197,
+          "comments": 11,
+          "saves": 70,
+          "cpv": 0.97,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@denverskindoc",
+          "date": "03.06",
+          "views": 14900,
+          "likes": 762,
+          "comments": 39,
+          "saves": 391,
+          "cpv": 0.84,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.06",
+          "views": 11861,
+          "likes": null,
+          "comments": 7,
+          "saves": 0,
+          "cpv": 0.02,
+          "platform": "UNK",
+          "link": "",
+          "is_new": false
+        }
+      ]
     }
   }
 }
