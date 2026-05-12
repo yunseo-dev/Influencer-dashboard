@@ -122,6 +122,13 @@ def detect_platform(url: str) -> str:
 
 def parse_post_line(line: str, is_new: bool) -> dict | None:
     """Parse a single post line into a dict, or return None if no match."""
+    # DEBUG: print first few post lines we attempt to parse
+    if not hasattr(parse_post_line, '_debug_count'):
+        parse_post_line._debug_count = 0
+    if parse_post_line._debug_count < 3:
+        print(f'[DEBUG-POST] Attempting parse: {repr(line[:250])}')
+        parse_post_line._debug_count += 1
+
     m = RE_POST.search(line)
     if not m:
         return None
@@ -129,6 +136,11 @@ def parse_post_line(line: str, is_new: bool) -> dict | None:
     # Pick whichever link format matched
     link = link_md or link_slack or ''
     safe_link = link.strip() if link else ''
+
+    # DEBUG: show what link matched
+    if parse_post_line._debug_count <= 3:
+        print(f'[DEBUG-POST]   matched: link_md={link_md!r}  link_slack={link_slack!r}  final={safe_link!r}')
+
     return {
         'handle':   handle.strip(),
         'date':     date.strip(),           # MM.DD format
