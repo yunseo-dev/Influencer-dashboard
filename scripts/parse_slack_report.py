@@ -81,9 +81,10 @@ RE_POST = re.compile(
     r'\s*댓글\s*([\d,]+)\s*\|'                      # comments
     r'\s*저장\s*([\d,]+)\s*\|'                      # saves
     r'\s*CPV\s*(?:[$]([\d.]+)|\(데이터 없음\))\s*\|' # CPV or N/A
-    r'\s*(?:\[Link\]\((https?://\S+?)\)|'           # [Link](url) format
-    r'<(?:_+)?(https?://\S+?)(?:_+)?\|[^>]*>|'      # Slack <url|text> format
-    r'Link)'                                         # plain "Link" with no URL
+    # Link: handles [Link](url), <url|text>, <_url_|text>, <__url__|text>, or plain "Link"
+    r'\s*(?:\[Link\]\((https?://[^\)\s]+)\)|'
+    r'<_*(https?://[^|>\s_]+)_*\s*(?:\|[^>]*)?>|'
+    r'_*Link_*)'
 )
 
 
