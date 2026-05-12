@@ -1548,10 +1548,21 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-12T08:10:46.592594Z",
+    "last_built": "2026-05-12T10:34:12.499810Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
     ]
+  },
+  "content_performance": {
+    "report_date": null,
+    "last_updated": "2026-05-12T10:34:12.499290Z",
+    "combined": {
+      "views": null,
+      "er": null,
+      "cpv": null
+    },
+    "california": {},
+    "doctor": {}
   }
 }
