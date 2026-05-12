@@ -130,12 +130,12 @@ def parse_post_line(line: str, is_new: bool) -> dict | None:
     safe_link = link.strip() if link else ''
     return {
         'handle':   handle.strip(),
-        'date':     date.strip(),
+        'date':     date.strip(),           # MM.DD format
         'views':    parse_int(views),
         'likes':    parse_int(likes),
         'comments': parse_int(comments),
         'saves':    parse_int(saves),
-        'cpv':      parse_float(cpv),
+        'cpv':      parse_float(cpv),       # None if 데이터 없음
         'platform': detect_platform(safe_link) if safe_link else 'UNK',
         'link':     safe_link,
         'is_new':   is_new,
@@ -168,6 +168,14 @@ def parse_report(text: str) -> dict:
     # before each known structural marker so we can iterate line by line.
     text = text.replace('\\n', '\n')
 
+    # Strip Slack's markdown formatting that interferes with parsing
+    text = text.replace('*', '')             # bold markers
+    text = re.sub(r':[a-z_]+:', '', text)    # emoji codes like :sparkles:
+
+    # Strip JSON wrapper prefix if it leaked through
+    text = re.sub(r'^\s*\{\s*"text"\s*:\s*"?', '', text)
+    text = re.sub(r'"?\s*\}\s*$', '', text)
+
     # Split before each structural section marker. Order matters — more
     # specific patterns first so we don't split mid-phrase.
     structural_markers = [
@@ -196,14 +204,6 @@ def parse_report(text: str) -> dict:
     text = re.sub(r'\s+(@\S+\s*\|\s*\d{2}\.\d{2})', r'\n\1', text)
 
     lines = text.splitlines()
-  
-  # DEBUG: show what lines we got after splitting
-    print(f'[DEBUG] After normalization, got {len(lines)} lines')
-    for i, l in enumerate(lines[:30]):
-        if l.strip():
-            print(f'[DEBUG] Line {i}: {repr(l.strip()[:100])}')
-    if len(lines) > 30:
-        print(f'[DEBUG] ... and {len(lines)-30} more lines')
 
     # --- Report date ---
     report_date = None
@@ -303,7 +303,7 @@ def parse_report(text: str) -> dict:
                 # (which it will), keep the is_new=True version.
                 existing = next(
                     (p for p in camp['posts']
-                     if p['handle'] == post['handle'] and p['date'] == post['date'] and p['link'] == post['link']),
+                     if p['handle'] == post['handle'] and p['date'] == post['date']),
                     None
                 )
                 if existing is None:
@@ -353,17 +353,20 @@ def merge_into_data_json(parsed: dict, data_json_path: Path) -> None:
         merged: list[dict] = list(prev_posts)
 
         for np in new_posts:
-            # Match on handle + date + link (most specific)
+            # Match on handle + date (link may be missing if Slack stripped it)
             match = next(
                 (p for p in merged
                  if p['handle'] == np['handle']
-                 and p['date']   == np['date']
-                 and p['link']   == np['link']),
+                 and p['date']   == np['date']),
                 None
             )
             if match:
                 # Update metrics (numbers may have changed since last report)
-                match.update({k: np[k] for k in ('views','likes','comments','saves','cpv','is_new')})
+                # Keep existing link if new one is missing
+                update_keys = ['views','likes','comments','saves','cpv','is_new']
+                if np.get('link'):
+                    update_keys.append('link')
+                match.update({k: np[k] for k in update_keys if k in np})
             else:
                 merged.append(np)
 
