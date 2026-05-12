@@ -191,6 +191,14 @@ def parse_report(text: str) -> dict:
     text = re.sub(r'\s+(@\S+\s*\|\s*\d{2}\.\d{2})', r'\n\1', text)
 
     lines = text.splitlines()
+  
+  # DEBUG: show what lines we got after splitting
+    print(f'[DEBUG] After normalization, got {len(lines)} lines')
+    for i, l in enumerate(lines[:30]):
+        if l.strip():
+            print(f'[DEBUG] Line {i}: {repr(l.strip()[:100])}')
+    if len(lines) > 30:
+        print(f'[DEBUG] ... and {len(lines)-30} more lines')
 
     # --- Report date ---
     report_date = None
