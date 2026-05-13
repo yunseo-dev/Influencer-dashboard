@@ -636,21 +636,18 @@ function renderContentPerformance() {
   function postRow(p) {
     const platClass = p.platform === 'IG' ? 'plat-ig' : 'plat-tk';
     const newBadge  = p.is_new ? '<span class="cp-new-badge">New</span>' : '';
-    const sparkle   = p.is_new ? '<i class="ti ti-sparkles" aria-hidden="true" style="font-size:13px;color:#9286d8"></i>' : '';
+    const linkCell  = p.link
+      ? `<a href="${p.link}" target="_blank" rel="noopener" style="color:#9286d8;text-decoration:none;font-size:14px">↗</a>`
+      : '—';
     return `
       <tr class="${p.is_new ? 'cp-new-row' : ''}">
-        <td style="text-align:center;width:28px">${sparkle}</td>
         <td style="font-weight:${p.is_new ? '600' : '400'}">${p.handle}${newBadge}</td>
         <td><span class="cp-plat-badge ${platClass}">${p.platform}</span></td>
         <td style="color:var(--text-muted)">${p.date || '—'}</td>
         <td style="text-align:right;font-weight:600">${fmtViews(p.views)}</td>
         <td style="text-align:right">${fmtViews(p.likes)}</td>
         <td style="text-align:right">${fmtViews(p.comments)}</td>
-        <td style="text-align:center">
-          <a href="${p.link}" target="_blank" rel="noopener" class="cp-link-icon" aria-label="Open post">
-            <i class="ti ti-external-link" aria-hidden="true"></i>
-          </a>
-        </td>
+        <td style="text-align:center">${linkCell}</td>
       </tr>`;
   }
 
@@ -720,7 +717,6 @@ function renderContentPerformance() {
       <table id="cp-table">
         <thead>
           <tr>
-            <th style="width:28px"></th>
             <th class="cp-sortable" data-key="handle">Handle</th>
             <th class="cp-sortable" data-key="platform">Platform</th>
             <th class="cp-sortable" data-key="date">Date</th>
