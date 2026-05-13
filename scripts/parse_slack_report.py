@@ -44,7 +44,7 @@ RE_REPORT_DATE = re.compile(
 #   평균 CPV: $0.52
 RE_COMBINED_VIEWS     = re.compile(r'총 조회수:\s*([\d,]+)')
 RE_COMBINED_ER        = re.compile(r'총 Engagement Rate:\s*([\d.]+)%')
-RE_COMBINED_CPV       = re.compile(r'평균 CPV:\s*\$([\d.]+)')
+RE_COMBINED_CPV       = re.compile(r'평균 CPV:\s*[$]([\d.]+)')
 
 # Campaign section headers, e.g.:
 #   캘리포니아 | 26.1분기
@@ -61,7 +61,7 @@ RE_CAMP_STATS = re.compile(
 # Campaign ER + CPV line, e.g.:
 #   Engagement Rate: 1.80% | 평균 CPV: $0.53
 RE_CAMP_ER_CPV = re.compile(
-    r'Engagement Rate:\s*([\d.]+)%\s*\|\s*평균 CPV:\s*\$([\d.]+)'
+    r'Engagement Rate:\s*([\d.]+)%\s*\|\s*평균 CPV:\s*[$]([\d.]+)'
 )
 
 # New-post section header, e.g.:
@@ -197,12 +197,12 @@ def parse_report(text: str) -> dict:
         '두 캠페인 합산 KPI',
         '총 조회수:',
         '총 Engagement Rate:',
+        '평균 CPV:',
         '캘리포니아 |',
         '닥터 인플루언서 |',
         '신규 게시물',
         '전체 게시물 누적 목록',
     ]
-  
     for mk in structural_markers:
         text = text.replace(mk, '\n' + mk)
 
