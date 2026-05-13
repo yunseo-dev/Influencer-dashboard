@@ -1553,10 +1553,37 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-13T01:25:26.920217Z",
+    "last_built": "2026-05-13T01:27:47.151360Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
     ]
+  },
+  "content_performance": {
+    "report_date": "2026-05-12",
+    "last_updated": "2026-05-13T01:27:47.150821Z",
+    "combined": {
+      "views": 1017418,
+      "er": 1.95,
+      "cpv": 0.48
+    },
+    "california": {
+      "views": 815873,
+      "likes": 13296,
+      "saves": 918,
+      "comments": 373,
+      "er": null,
+      "cpv": null,
+      "posts": []
+    },
+    "doctor": {
+      "views": 201545,
+      "likes": 4083,
+      "saves": 953,
+      "comments": 246,
+      "er": null,
+      "cpv": null,
+      "posts": []
+    }
   }
 }
