@@ -81,9 +81,10 @@ RE_POST = re.compile(
     r'\s*댓글\s*([\d,]+)\s*\|'                      # comments
     r'\s*저장\s*([\d,]+)\s*\|'                      # saves
     r'\s*CPV\s*(?:[$]([\d.]+)|\(데이터 없음\))\s*\|' # CPV or N/A
-    # Link: handles [Link](url), <url|text>, <_url_|text>, <__url__|text>, or plain "Link"
-    r'\s*(?:\[Link\]\((https?://[^\)\s]+)\)|'
-    r'<_*(https?://[^|>\s_]+)_*\s*(?:\|[^>]*)?>|'
+    # Link: handles bare URL, [Link](url), <url|text>, or plain "Link"
+    r'\s*(?:(https?://\S+)|'                        # bare URL
+    r'\[Link\]\((https?://[^\)\s]+)\)|'             # markdown [Link](url)
+    r'<_*(https?://[^|>\s_]+)_*\s*(?:\|[^>]*)?>|'   # Slack <url|text>
     r'_*Link_*)'
 )
 
@@ -132,14 +133,14 @@ def parse_post_line(line: str, is_new: bool) -> dict | None:
     m = RE_POST.search(line)
     if not m:
         return None
-    handle, date, views, likes, comments, saves, cpv, link_md, link_slack = m.groups()
+    handle, date, views, likes, comments, saves, cpv, link_bare, link_md, link_slack = m.groups()
     # Pick whichever link format matched
-    link = link_md or link_slack or ''
+    link = link_bare or link_md or link_slack or ''
     safe_link = link.strip() if link else ''
 
     # DEBUG: show what link matched
     if parse_post_line._debug_count <= 3:
-        print(f'[DEBUG-POST]   matched: link_md={link_md!r}  link_slack={link_slack!r}  final={safe_link!r}')
+        print(f'[DEBUG-POST]   matched: link_bare={link_bare!r}  link_md={link_md!r}  link_slack={link_slack!r}  final={safe_link!r}')
 
     return {
         'handle':   handle.strip(),
