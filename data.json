@@ -1553,7 +1553,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-13T06:37:34.865975Z",
+    "last_built": "2026-05-13T06:42:46.295246Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
@@ -1561,7 +1561,7 @@
   },
   "content_performance": {
     "report_date": "2026-05-12",
-    "last_updated": "2026-05-13T06:37:34.865449Z",
+    "last_updated": "2026-05-13T06:42:46.294353Z",
     "combined": {
       "views": 1017418,
       "er": 1.95,
@@ -1574,7 +1574,152 @@
       "comments": 373,
       "er": null,
       "cpv": null,
-      "posts": []
+      "posts": [
+        {
+          "handle": "@sarahlaguda",
+          "date": "05.11",
+          "views": 4047,
+          "likes": 169,
+          "comments": 5,
+          "saves": 0,
+          "cpv": null,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYLstY5P4Lu/",
+          "is_new": true
+        },
+        {
+          "handle": "@sarahbebelle",
+          "date": "05.10",
+          "views": 1506,
+          "likes": 153,
+          "comments": 3,
+          "saves": 17,
+          "cpv": null,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@sarahbebelle/video/7638065646403587358",
+          "is_new": true
+        },
+        {
+          "handle": "@skincarewithyuri",
+          "date": "05.08",
+          "views": 88659,
+          "likes": 988,
+          "comments": 40,
+          "saves": 0,
+          "cpv": null,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYFJydBp36T/",
+          "is_new": false
+        },
+        {
+          "handle": "@yurileeeee",
+          "date": "05.08",
+          "views": 9709,
+          "likes": 355,
+          "comments": 11,
+          "saves": 70,
+          "cpv": null,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@yurileeeee/video/7637521695330585869",
+          "is_new": false
+        },
+        {
+          "handle": "@officialjulissab",
+          "date": "05.08",
+          "views": 29910,
+          "likes": 1188,
+          "comments": 36,
+          "saves": 0,
+          "cpv": 0.1,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYDoYU1vUBa/",
+          "is_new": false
+        },
+        {
+          "handle": "@sonyased5",
+          "date": "05.07",
+          "views": 24774,
+          "likes": 275,
+          "comments": 7,
+          "saves": 0,
+          "cpv": 0.3,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYDSBcxSy7E/",
+          "is_new": false
+        },
+        {
+          "handle": "@sarahesri",
+          "date": "05.05",
+          "views": 300340,
+          "likes": null,
+          "comments": 52,
+          "saves": 0,
+          "cpv": 0.0,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX9oG4ExVVi/",
+          "is_new": false
+        },
+        {
+          "handle": "@byo0n",
+          "date": "05.04",
+          "views": 104600,
+          "likes": 3493,
+          "comments": 62,
+          "saves": 332,
+          "cpv": 0.1,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@byo0n/video/7636098601009057038",
+          "is_new": false
+        },
+        {
+          "handle": "@_brandonyoon_",
+          "date": "05.04",
+          "views": 45483,
+          "likes": 1844,
+          "comments": 24,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7RcsVuwkx/",
+          "is_new": false
+        },
+        {
+          "handle": "@jennaabarclay",
+          "date": "05.04",
+          "views": 30113,
+          "likes": 400,
+          "comments": 13,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7c8fvBVsQ/",
+          "is_new": false
+        },
+        {
+          "handle": "@taelerwatson",
+          "date": "05.04",
+          "views": 24481,
+          "likes": 333,
+          "comments": 15,
+          "saves": 0,
+          "cpv": 0.1,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7Ds4xhE0d/",
+          "is_new": false
+        },
+        {
+          "handle": "@clairemjpark",
+          "date": "05.04",
+          "views": 22117,
+          "likes": null,
+          "comments": 35,
+          "saves": 0,
+          "cpv": 0.4,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7HDbdJYNm/",
+          "is_new": false
+        }
+      ]
     },
     "doctor": {
       "views": 201545,
@@ -1583,7 +1728,92 @@
       "comments": 246,
       "er": null,
       "cpv": null,
-      "posts": []
+      "posts": [
+        {
+          "handle": "@dr.ljmaxfield",
+          "date": "04.09",
+          "views": 46276,
+          "likes": 563,
+          "comments": 23,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DW7BgbTD5Fw/",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd1",
+          "date": "03.20",
+          "views": 17100,
+          "likes": 805,
+          "comments": 31,
+          "saves": 451,
+          "cpv": 1.0,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drcharlesmd1/video/7619466778271419679",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd",
+          "date": "03.20",
+          "views": 57163,
+          "likes": 1378,
+          "comments": 83,
+          "saves": 0,
+          "cpv": 0.3,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DWH2NBnkSqU/",
+          "is_new": false
+        },
+        {
+          "handle": "@drmadalyn",
+          "date": "03.09",
+          "views": 9286,
+          "likes": 197,
+          "comments": 11,
+          "saves": 70,
+          "cpv": 1.0,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drmadalyn/video/7615348500087180557",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.09",
+          "views": 3190,
+          "likes": 55,
+          "comments": 3,
+          "saves": 41,
+          "cpv": 0.1,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drpavlou/video/7615300845248351506",
+          "is_new": false
+        },
+        {
+          "handle": "@denverskindoc",
+          "date": "03.06",
+          "views": 15000,
+          "likes": 762,
+          "comments": 39,
+          "saves": 391,
+          "cpv": 0.8,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@denverskindoc/video/7613992797015723294",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.06",
+          "views": 11912,
+          "likes": null,
+          "comments": 7,
+          "saves": 0,
+          "cpv": 0.0,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DVjcXu8Dyu-/",
+          "is_new": false
+        }
+      ]
     }
   }
 }
