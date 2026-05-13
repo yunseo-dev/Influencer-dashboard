@@ -197,7 +197,6 @@ def parse_report(text: str) -> dict:
         '두 캠페인 합산 KPI',
         '총 조회수:',
         '총 Engagement Rate:',
-        '평균 CPV:',
         '캘리포니아 |',
         '닥터 인플루언서 |',
         '신규 게시물',
