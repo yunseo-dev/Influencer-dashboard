@@ -645,8 +645,16 @@ def build():
         }
     }
 
-    # Write to repo root
+    # Write to repo root — but preserve content_performance from existing file
+    # (it's updated separately by parse_slack_report.py from Slack messages)
     out_path = Path(__file__).parent.parent / 'data.json'
+    if out_path.exists():
+        try:
+            existing = json.loads(out_path.read_text(encoding='utf-8'))
+            if 'content_performance' in existing:
+                out['content_performance'] = existing['content_performance']
+        except Exception as e:
+            print(f'[WARN] Could not preserve content_performance: {e}')
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
 
     # Summary
