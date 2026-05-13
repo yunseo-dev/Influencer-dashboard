@@ -1547,19 +1547,19 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-13T08:18:09.986983Z",
+    "last_built": "2026-05-13T08:57:20.037648Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
     ]
   },
   "content_performance": {
-    "report_date": "2026-05-12",
-    "last_updated": "2026-05-13T06:42:46.294353Z",
+    "report_date": "2026-05-13",
+    "last_updated": "2026-05-13T08:57:20.037055Z",
     "combined": {
       "views": 1017418,
       "er": 1.95,
-      "cpv": 0.48
+      "cpv": null
     },
     "california": {
       "views": 815873,
@@ -1591,7 +1591,7 @@
           "cpv": null,
           "platform": "TK",
           "link": "https://www.tiktok.com/@sarahbebelle/video/7638065646403587358",
-          "is_new": true
+          "is_new": false
         },
         {
           "handle": "@skincarewithyuri",
@@ -1717,7 +1717,7 @@
     },
     "doctor": {
       "views": 201545,
-      "likes": 4083,
+      "likes": 4084,
       "saves": 953,
       "comments": 246,
       "er": null,
