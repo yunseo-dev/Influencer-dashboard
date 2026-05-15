@@ -1552,10 +1552,86 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-15T06:50:45.236807Z",
+    "last_built": "2026-05-15T06:55:22.492800Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
     ]
+  },
+  "content_performance": {
+    "report_date": "2026-05-14",
+    "last_updated": "2026-05-15T06:55:22.491715Z",
+    "combined": {
+      "views": 1051611,
+      "er": 1.94,
+      "cpv": null
+    },
+    "california": {
+      "views": 849570,
+      "likes": 13758,
+      "saves": 964,
+      "comments": 377,
+      "er": null,
+      "cpv": null,
+      "posts": [
+        {
+          "handle": "@sarahlaguda",
+          "date": "05.11",
+          "views": 4468,
+          "likes": 186,
+          "comments": 5,
+          "saves": 0,
+          "cpv": null,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYLstY5P4Lu/",
+          "is_new": true
+        },
+        {
+          "handle": "@sarahbebelle",
+          "date": "05.10",
+          "views": 1655,
+          "likes": 164,
+          "comments": 3,
+          "saves": 18,
+          "cpv": null,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@sarahbebelle/video/7638065646403587358",
+          "is_new": false
+        },
+        {
+          "handle": "@skincarewithyuri",
+          "date": "05.08",
+          "views": 93573,
+          "likes": 1031,
+          "comments": 41,
+          "saves": 0,
+          "cpv": null,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYFJydBp36T/",
+          "is_new": false
+        },
+        {
+          "handle": "@yurileeeee",
+          "date": "05.08",
+          "views": 10700,
+          "likes": 381,
+          "comments": 12,
+          "saves": 75,
+          "cpv": null,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@yurileeeee/video/7637521695330585869",
+          "is_new": false
+        }
+      ]
+    },
+    "doctor": {
+      "views": 202041,
+      "likes": 4086,
+      "saves": 956,
+      "comments": 238,
+      "er": null,
+      "cpv": null,
+      "posts": []
+    }
   }
 }
