@@ -388,6 +388,9 @@ def merge_into_data_json(parsed: dict, data_json_path: Path) -> None:
         if new_camp:
             new_camp['posts'] = merged
             parsed[camp_key] = new_camp
+        else:
+            # No new data for this campaign — preserve existing entirely
+            parsed[camp_key] = prev_camp
 
     data['content_performance'] = parsed
     data['meta']['last_built'] = datetime.utcnow().isoformat() + 'Z'
