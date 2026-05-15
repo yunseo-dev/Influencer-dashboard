@@ -113,6 +113,7 @@ function renderKPIs() {
   const totalPaidKRW = DATA.payments.filter(p => p.is_paid).reduce((s, p) => s + p.amount_krw, 0);
   const paidRate = totalSpentKRW > 0 ? totalPaidKRW / totalSpentKRW : 0;
 
+  const cp = DATA.content_performance;
   const kpis = [
     { label: 'Total Views', value: cp?.combined?.views != null ? fmtNum(cp.combined.views) : '—', sub: cp?.combined?.views != null ? 'Both campaigns' : 'Pending upload', pending: cp?.combined?.views == null },
     { label: 'Engagement Rate', value: cp?.combined?.er != null ? cp.combined.er.toFixed(2) + '%' : '—', sub: cp?.combined?.er != null ? 'Avg across all posts' : 'Pending upload', pending: cp?.combined?.er == null },
