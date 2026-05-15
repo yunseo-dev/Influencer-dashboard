@@ -53,7 +53,6 @@ function renderAll() {
   safe('Filters', initFilters);
   safe('Calendar', renderCalendar);
   safe('Budget', renderBudget);
-  safe('Content performance', renderContentPerformance);
   safe('Payments table', renderPaymentsTable);
   safe('Sidebar nav', initSidebarNav);
   safe('Modal', initModal);
@@ -113,11 +112,45 @@ function renderKPIs() {
   const totalPaidKRW = DATA.payments.filter(p => p.is_paid).reduce((s, p) => s + p.amount_krw, 0);
   const paidRate = totalSpentKRW > 0 ? totalPaidKRW / totalSpentKRW : 0;
 
+  // Content performance metrics — computed from DATA.posts when available
+  const posts = DATA.posts || [];
+  let viewsKpi, erKpi, cpvKpi;
+  if (posts.length > 0) {
+    const totalViews = posts.reduce((s, p) => s + (p.views || 0), 0);
+    const totalLikes = posts.reduce((s, p) => s + (p.likes || 0), 0);
+    const totalComments = posts.reduce((s, p) => s + (p.comments || 0), 0);
+    // ER = (likes + comments) / views, averaged across posts that have views
+    const postsWithViews = posts.filter(p => p.views > 0);
+    const avgER = postsWithViews.length > 0
+      ? postsWithViews.reduce((s, p) => s + ((p.likes || 0) + (p.comments || 0)) / p.views, 0) / postsWithViews.length
+      : null;
+    // Avg CPV = total committed spend / total views (in USD)
+    const avgCPV = totalViews > 0 ? totalSpentKRW / DATA.budget.exchange_rate / totalViews : null;
+
+    const caViews = posts.filter(p => p.campaign === 'influencer').reduce((s, p) => s + (p.views || 0), 0);
+    const drViews = posts.filter(p => p.campaign === 'doctor').reduce((s, p) => s + (p.views || 0), 0);
+    const subParts = [];
+    if (caViews > 0) subParts.push('CA ' + fmtNum(caViews));
+    if (drViews > 0) subParts.push('Dr. ' + fmtNum(drViews));
+
+    viewsKpi = { label: 'Total Views', value: fmtNum(totalViews), sub: subParts.join(' · ') || 'Both campaigns' };
+    erKpi    = avgER !== null
+      ? { label: 'Engagement Rate', value: fmtPct(avgER), sub: 'Avg across all posts' }
+      : { label: 'Engagement Rate', value: '—', sub: 'No engagement data', pending: true };
+    cpvKpi   = avgCPV !== null
+      ? { label: 'Avg CPV', value: '$' + avgCPV.toFixed(3), sub: 'Cost per view' }
+      : { label: 'Avg CPV', value: '—', sub: 'Cost per view', pending: true };
+  } else {
+    viewsKpi = { label: 'Total Views', value: '—', sub: 'Pending upload', pending: true };
+    erKpi    = { label: 'Engagement Rate', value: '—', sub: 'Pending upload', pending: true };
+    cpvKpi   = { label: 'Avg CPV', value: '—', sub: 'Pending upload', pending: true };
+  }
+
   const kpis = [
-    { label: 'Total Views', value: '—', sub: 'Pending upload', pending: true },
-    { label: 'Engagement Rate', value: '—', sub: 'Pending upload', pending: true },
-    { label: 'Avg CPV', value: '—', sub: 'Pending upload', pending: true },
-   { label: 'Inbound Requests', value: fmtNum(DATA.inbound_total), sub: DATA.inbound_qualified + ' qualified' },
+    viewsKpi,
+    erKpi,
+    cpvKpi,
+    { label: 'Inbound Requests', value: fmtNum(DATA.inbound_qualified), sub: 'Tier 4 + qualified · ' + DATA.inbound_total + ' total' },
     { label: 'Budget Burn', value: fmtPct(burnPct), sub: fmtKRWshort(totalSpentKRW) + ' of ' + fmtKRWshort(totalBudgetKRW) },
     { label: 'Paid Rate', value: fmtPct(paidRate), sub: fmtKRWshort(totalPaidKRW) + ' paid of committed' },
     { label: 'Active Pipeline', value: fmtNum(activePipeline), sub: fmtNum(totalContracted) + ' total contracted' },
@@ -605,283 +638,3 @@ function initSidebarNav() {
 }
 
 init();
-
-// ─────────────────────────────────────────────────────────────────────
-// renderContentPerformance()
-//
-// ADD THIS FUNCTION to dashboard.js, then:
-//   1. Add  safe('Content performance', renderContentPerformance);
-//      to the renderAll() function body.
-//   2. The existing placeholder HTML in index.html for #content will be
-//      replaced automatically when data is present.
-// ─────────────────────────────────────────────────────────────────────
-
-function renderContentPerformance() {
-  const section = document.getElementById('content');
-  if (!section) return;
-
-  const cp = DATA.content_performance;
-
-  // No data yet — leave the existing placeholder in place
-  if (!cp || !cp.combined) return;
-
-  const { combined, california: ca, doctor: doc } = cp;
-
-  // ── helpers ──────────────────────────────────────────────────────
-  const fmtViews = n => n != null ? Math.round(n).toLocaleString('en-US') : '—';
-  const fmtER    = n => n != null ? n.toFixed(2) + '%' : '—';
-  const fmtCPV   = n => n != null ? '$' + n.toFixed(2) : '—';
-
-  // Build a post row for the table
-  function postRow(p) {
-    const platClass = p.platform === 'IG' ? 'plat-ig' : 'plat-tk';
-    const newBadge  = p.is_new ? '<span class="cp-new-badge">New</span>' : '';
-    const linkCell  = p.link
-      ? `<a href="${p.link}" target="_blank" rel="noopener" style="color:#9286d8;text-decoration:none;font-size:14px">↗</a>`
-      : '—';
-    return `
-      <tr class="${p.is_new ? 'cp-new-row' : ''}">
-        <td style="font-weight:${p.is_new ? '600' : '400'}">${p.handle}${newBadge}</td>
-        <td><span class="cp-plat-badge ${platClass}">${p.platform}</span></td>
-        <td style="color:var(--text-muted)">${p.date || '—'}</td>
-        <td style="text-align:right;font-weight:600">${fmtViews(p.views)}</td>
-        <td style="text-align:right">${fmtViews(p.likes)}</td>
-        <td style="text-align:right">${fmtViews(p.comments)}</td>
-        <td style="text-align:center">${linkCell}</td>
-      </tr>`;
-  }
-
-  // Build the full section HTML
-  const reportDate = cp.report_date
-    ? new Date(cp.report_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-    : '—';
-
-  section.innerHTML = `
-    <div class="section-header">
-      <h2 class="section-title">Content Performance</h2>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="cp-slack-badge"><i class="ti ti-brand-slack" aria-hidden="true" style="font-size:12px;margin-right:3px"></i>Slack sync</span>
-        <div class="section-meta">Updated ${reportDate}</div>
-      </div>
-    </div>
-
-    <!-- Combined KPIs -->
-    <div class="cp-kpi-row">
-      <div class="cp-kpi">
-        <div class="kpi-label">Total views</div>
-        <div class="kpi-value">${fmtViews(combined.views)}</div>
-        <div class="kpi-sub">Both campaigns</div>
-      </div>
-      <div class="cp-kpi">
-        <div class="kpi-label">Engagement rate</div>
-        <div class="kpi-value">${fmtER(combined.er)}</div>
-        <div class="kpi-sub">Avg across all posts</div>
-      </div>
-      <div class="cp-kpi">
-        <div class="kpi-label">Avg CPV</div>
-        <div class="kpi-value">${fmtCPV(combined.cpv)}</div>
-        <div class="kpi-sub">Cost per view</div>
-      </div>
-    </div>
-
-    <!-- Per-campaign summary cards -->
-    <div class="cp-camp-row">
-      ${campCard('california', '캘리포니아 캠페인', '#9286d8', ca)}
-      ${campCard('doctor',     '닥터 캠페인',        '#c9bdcd', doc)}
-    </div>
-
-    <!-- Tab bar -->
-    <div class="cp-tabs" id="cp-tabs">
-      <button class="cp-tab active" data-tab="california">
-        캘리포니아 <span class="cp-tab-badge" id="cp-badge-ca">${(ca?.posts || []).length}</span>
-      </button>
-      <button class="cp-tab" data-tab="doctor">
-        닥터 <span class="cp-tab-badge" id="cp-badge-doc">${(doc?.posts || []).length}</span>
-      </button>
-    </div>
-
-    <!-- Filters -->
-    <div class="cp-filters" id="cp-filters">
-      <input type="text" id="cp-search" class="search-input" placeholder="Search handle…" style="max-width:200px" />
-      <select id="cp-plat" class="filter-select">
-        <option value="">All platforms</option>
-        <option value="IG">Instagram</option>
-        <option value="TK">TikTok</option>
-      </select>
-      <button class="cp-new-only-btn" id="cp-new-only">New posts only</button>
-      <span id="cp-count" style="margin-left:auto;font-size:0.78rem;color:var(--text-muted)"></span>
-    </div>
-
-    <!-- Table -->
-    <div class="table-wrap">
-      <table id="cp-table">
-        <thead>
-          <tr>
-            <th class="cp-sortable" data-key="handle">Handle</th>
-            <th class="cp-sortable" data-key="platform">Platform</th>
-            <th class="cp-sortable" data-key="date">Date</th>
-            <th class="cp-sortable num" data-key="views">Views</th>
-            <th class="cp-sortable num" data-key="likes">Likes</th>
-            <th class="cp-sortable num" data-key="comments">Comments</th>
-            <th style="text-align:center;width:48px">Link</th>
-          </tr>
-        </thead>
-        <tbody id="cp-tbody"></tbody>
-      </table>
-      <div style="font-size:0.74rem;color:var(--text-muted);padding:8px 12px;text-align:right" id="cp-count-row"></div>
-    </div>
-  `;
-
-  // ── state ──────────────────────────────────────────────────────────
-  let cpActiveTab = 'california';
-  let cpNewOnly   = false;
-  let cpSortKey   = 'date';
-  let cpSortDir   = 'desc';
-
-  function campCard(key, label, dotColor, camp) {
-    if (!camp) return '';
-    const posts = camp.posts || [];
-    const newCount = posts.filter(p => p.is_new).length;
-    return `
-      <div class="cp-camp-card">
-        <div class="cp-camp-head">
-          <div class="cp-camp-name">
-            <span style="width:7px;height:7px;border-radius:50%;background:${dotColor};display:inline-block;flex-shrink:0"></span>
-            ${label}
-          </div>
-          <span style="font-size:0.74rem;color:var(--text-muted)">${posts.length} posts${newCount ? ` · <span style="color:#7a6cc7;font-weight:600">${newCount} new</span>` : ''}</span>
-        </div>
-        <div class="cp-camp-stats">
-          <div><div class="kpi-label">Views</div><div style="font-size:0.95rem;font-weight:600">${fmtViews(camp.views)}</div></div>
-          <div><div class="kpi-label">ER</div><div style="font-size:0.95rem;font-weight:600">${fmtER(camp.er)}</div></div>
-          <div><div class="kpi-label">Likes</div><div style="font-size:0.95rem;font-weight:600">${fmtViews(camp.likes)}</div></div>
-          <div><div class="kpi-label">Avg CPV</div><div style="font-size:0.95rem;font-weight:600">${fmtCPV(camp.cpv)}</div></div>
-        </div>
-      </div>`;
-  }
-
-  function renderTable() {
-    const data = cpActiveTab === 'california'
-      ? (ca?.posts || [])
-      : (doc?.posts || []);
-
-    const search = document.getElementById('cp-search')?.value.toLowerCase() || '';
-    const plat   = document.getElementById('cp-plat')?.value || '';
-
-    let filtered = data.filter(p => {
-      if (cpNewOnly && !p.is_new) return false;
-      if (search && !p.handle.toLowerCase().includes(search)) return false;
-      if (plat && p.platform !== plat) return false;
-      return true;
-    });
-
-    filtered.sort((a, b) => {
-      let av = a[cpSortKey], bv = b[cpSortKey];
-      if (av === null || av === undefined) av = -1;
-      if (bv === null || bv === undefined) bv = -1;
-      if (typeof av === 'string') av = av.toLowerCase();
-      if (typeof bv === 'string') bv = bv.toLowerCase();
-      if (av < bv) return cpSortDir === 'asc' ? -1 : 1;
-      if (av > bv) return cpSortDir === 'asc' ? 1 : -1;
-      return 0;
-    });
-
-    // Update sort indicators
-    document.querySelectorAll('.cp-sortable').forEach(th => {
-      th.classList.remove('sort-asc', 'sort-desc');
-      if (th.dataset.key === cpSortKey) {
-        th.classList.add(cpSortDir === 'asc' ? 'sort-asc' : 'sort-desc');
-      }
-    });
-
-    const newCount = filtered.filter(p => p.is_new).length;
-    const countEl  = document.getElementById('cp-count');
-    if (countEl) countEl.textContent = filtered.length + ' posts' + (newCount ? ` · ${newCount} new` : '');
-
-    const rowEl = document.getElementById('cp-count-row');
-    if (rowEl) rowEl.textContent = `Showing ${filtered.length} of ${data.length} posts`;
-
-    const tbody = document.getElementById('cp-tbody');
-    if (tbody) tbody.innerHTML = filtered.map(postRow).join('');
-  }
-
-  // ── wire up interactivity (runs after innerHTML is set) ──────────
-  // Tabs
-  document.getElementById('cp-tabs')?.addEventListener('click', e => {
-    const btn = e.target.closest('.cp-tab');
-    if (!btn) return;
-    cpActiveTab = btn.dataset.tab;
-    document.querySelectorAll('.cp-tab').forEach(b => b.classList.toggle('active', b === btn));
-    renderTable();
-  });
-
-  // Search + platform filter
-  document.getElementById('cp-search')?.addEventListener('input', renderTable);
-  document.getElementById('cp-plat')?.addEventListener('change', renderTable);
-
-  // New-only toggle
-  document.getElementById('cp-new-only')?.addEventListener('click', function () {
-    cpNewOnly = !cpNewOnly;
-    this.classList.toggle('cp-new-only-on', cpNewOnly);
-    renderTable();
-  });
-
-  // Column sort
-  document.querySelectorAll('.cp-sortable').forEach(th => {
-    th.style.cursor = 'pointer';
-    th.addEventListener('click', () => {
-      if (cpSortKey === th.dataset.key) {
-        cpSortDir = cpSortDir === 'asc' ? 'desc' : 'asc';
-      } else {
-        cpSortKey = th.dataset.key;
-        cpSortDir = th.dataset.key === 'date' ? 'desc' : 'desc';
-      }
-      renderTable();
-    });
-  });
-
-  renderTable();
-}
-
-
-// ─────────────────────────────────────────────────────────────────────
-// CSS to add to styles.css
-// Copy the block below into your styles.css file.
-// ─────────────────────────────────────────────────────────────────────
-/*
-
-.cp-kpi-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
-.cp-kpi { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; }
-
-.cp-camp-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
-.cp-camp-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }
-.cp-camp-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
-.cp-camp-name { font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:6px; }
-.cp-camp-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
-
-.cp-slack-badge { font-size:0.7rem; padding:3px 8px; border-radius:100px; background:#eaf3de; color:#27500a; font-weight:600; }
-
-.cp-tabs { display:flex; border-bottom:1px solid var(--border); margin-bottom:14px; }
-.cp-tab { font-size:0.88rem; padding:8px 16px; border:none; background:transparent; cursor:pointer; color:var(--text-soft); border-bottom:2px solid transparent; margin-bottom:-1px; font-family:var(--font-main); font-weight:500; transition:color .15s; }
-.cp-tab.active { color:var(--accent-700); border-bottom-color:var(--accent-500); }
-.cp-tab-badge { display:inline-block; font-size:0.68rem; padding:1px 6px; border-radius:100px; background:var(--silver-100); color:var(--text-muted); margin-left:4px; font-weight:500; }
-
-.cp-filters { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; align-items:center; }
-.cp-new-only-btn { font-size:0.78rem; padding:4px 10px; border:1px solid var(--border-strong); border-radius:100px; background:transparent; cursor:pointer; color:var(--text-soft); font-family:var(--font-main); transition:all .15s; }
-.cp-new-only-on { background:var(--accent-100); color:var(--accent-700); border-color:var(--accent-300); }
-
-.cp-new-row td { background:rgba(146,134,216,0.07); }
-.cp-new-row td:first-child { border-left:3px solid var(--accent-400); }
-.cp-new-badge { font-size:0.62rem; padding:1px 5px; border-radius:4px; background:var(--accent-100); color:var(--accent-700); font-weight:600; margin-left:5px; vertical-align:middle; }
-.cp-plat-badge { display:inline-flex; align-items:center; font-size:0.7rem; padding:2px 6px; border-radius:4px; font-weight:600; }
-.plat-ig { background:#fbeaf0; color:#72243e; }
-.plat-tk { background:#e1f5ee; color:#085041; }
-.cp-link-icon { color:var(--text-muted); font-size:0.9rem; text-decoration:none; }
-.cp-link-icon:hover { color:var(--text); }
-
-@media (max-width:900px) {
-  .cp-camp-row { grid-template-columns:1fr; }
-  .cp-kpi-row  { grid-template-columns:repeat(2,1fr); }
-}
-
-*/
