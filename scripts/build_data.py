@@ -41,35 +41,30 @@ SHEET_URLS = {
         'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqbDvMK9c2Thq4PnaQS0Il4j4lpSo8gJmL3JVNpsYcr5E0dl8yFNNqF3w9iUyolrTlWxvAVtMmTVOZ/pub?gid=109105299&single=true&output=csv',
     'leads':
         'https://docs.google.com/spreadsheets/d/e/2PACX-1vRI3KciPBC0vZokBGPnSLnF6kPvm_Pw4T1iKacbRTrb8KHG6DODQktWBslyD_RiLyxMAJ2X06Aa5r8t/pub?gid=0&single=true&output=csv',
+    # Content performance tab — uncomment and set gid once the sheet tab is published
+    # 'content_performance': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqbDvMK9c2Thq4PnaQS0Il4j4lpSo8gJmL3JVNpsYcr5E0dl8yFNNqF3w9iUyolrTlWxvAVtMmTVOZ/pub?gid=XXXXXXX&single=true&output=csv',
 }
 
 # Manual name map: Before/After 시술 names → 일반 예산 관리 names
 # (ㄴ-prefixed pair secondaries are also handled here)
 MANUAL_NAME_MAP = {
-    'Gabriella Juliana Galdorise': 'Gabriella Juliana Galdorise',
-    'Raquel Amdal': 'Raquel Amdal',
-    'Rachel Barnes': 'Rachel Barnes',
-    'Sayeh Soltani': 'Sayeh Soltani',
-    'Allison Wong': 'Allison Wong',
-    'Julia White': 'Julia White',
-    'Roger Ma': 'Roger Ma',
-    'Anastasia Tupitsyna': 'Anastasia Tupitsyna',
-    'Stephani kim': 'Stephani kim',
-    'Sonia Lee': 'Aylen Park',
-    'David Cho': 'Hana Sim & David',
-    'Hana Sim': 'Hana Sim',
-    'Mia Howerton': 'Mia Howerton',
-    'Sarah Isabelle Laguda': 'Sarah Isabelle Laguda',
-    'Claire MJ Park': 'Claire MJ Park',
-    'Alyssa Antoci': 'Alyssa Antoci',
-    'HyunJi Kim': 'HyunJi Kim',
-    'Charles Puza': 'Dr. Charles',
-    'Luke Maxfield': 'Dr. Luke Maxfield',
-    'Madalyn Nguyen': 'Dr. Madalyn Nguyen',
-    'Miranda Wilson': 'Miranda Wilson',
-    'Walter': 'Dr. Walter',
-    'pavlou': 'Dr. Pavlou',
-    'Anil Rajani': 'Dr Anil Rajani',
+    'Gabriella Juliana Galdorise': 'GiGi Juliana',
+    'Raquel Amdal': 'Raquel',
+    'Rachel Barnes': 'Rocky Barnes',
+    'Sayeh Soltani': 'sayehsoltani',
+    'Allison Wong': 'Ally Wong',
+    'Julia White': 'Julia',
+    'Roger Ma': 'Roger',
+    'Anastasia Tupitsyna': 'Anastasia',
+    'Stephani kim': 'Steph kimmi',
+    'Sonia Lee': 'Aylen Park',          # paired
+    'David Cho': 'Hana Sim & David',    # paired
+    'Hana Sim': 'Hana Sim & David',
+    'Mia Howerton': 'Mia howerton',
+    'Sarah Isabelle Laguda': 'Sarah Isabelle',
+    'Claire MJ Park': 'Claire Park',
+    'Alyssa Antoci': 'alyssa antoci',
+    'HyunJi Kim': 'Sally Hyunji Kim',
 }
 
 PAIR_SECONDARIES = {'David Cho', 'Sonia Lee'}
@@ -292,7 +287,7 @@ def parse_doctor_budget(rows: list[list[str]]) -> tuple[dict, list[dict]]:
         cost_usd = to_float(get('비용')) or 0
         achieved_views = to_float(get('달성 조회수')) or 0
         median_views = to_float(get('중앙 조회수')) or 0
-        posted = is_truthy((row[13] if len(row) > 13 else ''))
+        posted = is_truthy(get('게시 여부'))
 
         doctors.append({
             'name': name,
@@ -332,34 +327,22 @@ def parse_before_treatment(rows: list[list[str]]) -> dict[str, str]:
             continue
         if not v1 or v1 == '인플루언서 이름':
             continue
-        if v0.startswith('ㄴ'):
-            continue
         if is_truthy(v4):
             confirmed[v1] = current_clinic
     return confirmed
 
 
-def parse_after_treatment(rows: list[list[str]]) -> tuple[set[str], set[str]]:
-    """Returns (treatment_done, upload_done).
-    treatment_done: col E (시술 완료) = TRUE
-    upload_done:    col C (업로드) = TRUE
-    """
-    treatment_done = set()
-    upload_done = set()
+def parse_after_treatment(rows: list[list[str]]) -> set[str]:
+    """Returns set of names where 시술 완료 (col 4) = TRUE."""
+    done = set()
     for row in rows:
         v1 = (row[1] if len(row) > 1 else '').strip()
-        v2 = (row[2] if len(row) > 2 else '').strip()
         v4 = (row[4] if len(row) > 4 else '').strip()
         if not v1 or v1 == '인플루언서 이름':
             continue
-        v0 = (row[0] if len(row) > 0 else '').strip()
-        if v0.startswith('ㄴ'):
-            continue
         if is_truthy(v4):
-            treatment_done.add(v1)
-        if is_truthy(v2):
-            upload_done.add(v1)
-    return treatment_done, upload_done
+            done.add(v1)
+    return done
 
 
 def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
@@ -390,7 +373,6 @@ def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
         upload_date = to_iso_date(get('콘텐츠 업로드일'))
         deadline = to_iso_date(get('지급기한'))
         paid_date = to_iso_date(get('지출날짜'))
-        jgyeol = is_truthy((row[4] if len(row) > 4 else ''))  # col E: 지결 승인 완료
         influencer_type = get('인플루언서 유형')
         is_doctor = '닥터' in influencer_type
 
@@ -404,7 +386,7 @@ def parse_payments(rows: list[list[str]], exchange_rate: float) -> list[dict]:
             'paid_date': paid_date,
             'amount_usd': amount_usd,
             'amount_krw': amount_usd * exchange_rate,
-            'is_paid': jgyeol,
+            'is_paid': bool(paid_date),
         })
     return payments
 
@@ -468,6 +450,69 @@ def parse_calendar(rows: list[list[str]]) -> list[dict]:
     return events
 
 
+def parse_content_performance(rows: list[list[str]], campaign: str = 'influencer') -> list[dict]:
+    """Parse a content performance sheet tab.
+
+    Expected columns (case-insensitive, flexible order):
+      handle / influencer / name  → handle
+      platform                    → 'IG' or 'TT'/'TK'
+      date                        → upload date
+      views                       → integer
+      likes                       → integer (optional)
+      comments                    → integer (optional)
+      link / url                  → post URL (optional)
+    """
+    if not rows or len(rows) < 2:
+        return []
+
+    # Find header row (first row that has recognizable column names)
+    header_row_idx = 0
+    for i, row in enumerate(rows[:5]):
+        lowered = [c.lower().strip() for c in row]
+        if any(k in lowered for k in ('handle', 'influencer', 'name', '핸들')):
+            header_row_idx = i
+            break
+
+    headers = [h.lower().strip() for h in rows[header_row_idx]]
+
+    def find_col(*candidates):
+        for c in candidates:
+            if c in headers:
+                return headers.index(c)
+        return None
+
+    col_handle   = find_col('handle', 'influencer', 'name', '핸들', '인플루언서')
+    col_platform = find_col('platform', '플랫폼')
+    col_date     = find_col('date', 'upload date', '날짜', '업로드 날짜')
+    col_views    = find_col('views', '조회수', 'view')
+    col_likes    = find_col('likes', '좋아요')
+    col_comments = find_col('comments', '댓글')
+    col_link     = find_col('link', 'url', '링크')
+
+    posts = []
+    for row in rows[header_row_idx + 1:]:
+        def get(idx):
+            if idx is None or idx >= len(row):
+                return ''
+            return row[idx].strip()
+
+        handle = get(col_handle)
+        if not handle:
+            continue
+        views = to_float(get(col_views)) or 0
+        posts.append({
+            'handle':   handle,
+            'platform': get(col_platform).upper() if col_platform is not None else '',
+            'date':     to_iso_date(get(col_date)) if col_date is not None else None,
+            'views':    int(views),
+            'likes':    int(to_float(get(col_likes)) or 0) if col_likes is not None else None,
+            'comments': int(to_float(get(col_comments)) or 0) if col_comments is not None else None,
+            'link':     get(col_link) if col_link is not None else None,
+            'campaign': campaign,
+        })
+    return posts
+
+
 def parse_leads(rows: list[list[str]]) -> tuple[int, int, list[dict]]:
     """Returns (total_count, qualified_count, daily_timeline)."""
     if not rows:
@@ -490,11 +535,11 @@ def parse_leads(rows: list[list[str]]) -> tuple[int, int, list[dict]]:
         date_str = to_iso_date(timestamp)
         if not date_str:
             continue
-        is_us = (row[20] if len(row) > 20 else '').strip().upper() == 'US'
+        is_us = get('COUNTRY').upper() == 'US'
         if not is_us:
             continue
         total += 1
-        is_q = '✅' in (row[19] if len(row) > 19 else '')
+        is_q = get('Qualified').upper() == 'true'
         if is_q:
             qualified += 1
         if date_str not in timeline_counter:
@@ -539,73 +584,57 @@ def build():
         d['cost_krw'] = d['cost_usd'] * exchange_rate
 
     # Parse before / after / payments
-    before_confirmed = parse_before_treatment(raw['before_treatment'])
-    treatment_done, upload_done = parse_after_treatment(raw['after_treatment'])
+    before_confirmed = parse_before_treatment(raw['before_treatment'])  # name → clinic
+    after_done = parse_after_treatment(raw['after_treatment'])
     payments = parse_payments(raw['payments'], exchange_rate)
 
-    # Names approved for payment (지결 승인 완료 = TRUE in 지출)
-    paid_names_raw = {p['name'] for p in payments if p.get('is_paid')}
+    # Build set of names with payments uploaded / paid (for stage detection)
+    posted_names_raw = {p['name'] for p in payments if p.get('upload_date')}
+    paid_names_raw = {p['name'] for p in payments if p.get('paid_date')}
 
-    # Resolve cross-sheet names → canonical 일반 예산 관리 names
-    booking_resolved: dict[str, str] = {}
+    # Resolve names from Before/After/지출 → 일반 예산 관리 names
+    booking_resolved: dict[str, str] = {}  # canonical_name → clinic
     for raw_name, clinic in before_confirmed.items():
         resolved = resolve_name(raw_name, inf_names)
         if resolved:
             booking_resolved[resolved] = clinic
 
     treatment_resolved = set()
-    for raw_name in treatment_done:
+    for raw_name in after_done:
         resolved = resolve_name(raw_name, inf_names)
         if resolved:
             treatment_resolved.add(resolved)
 
-    upload_resolved = set()
-    for raw_name in upload_done:
-        resolved = resolve_name(raw_name, inf_names)
-        if resolved:
-            upload_resolved.add(resolved)
-
+    posted_resolved = set()
     paid_resolved = set()
+    for raw_name in posted_names_raw:
+        r = resolve_name(raw_name, inf_names) or raw_name
+        posted_resolved.add(r)
     for raw_name in paid_names_raw:
         r = resolve_name(raw_name, inf_names) or raw_name
         paid_resolved.add(r)
 
-    # Stage logic — cumulative, highest reached wins
-    NOT_CONFIRMED = {'취소', '비용 협의중', '네고 후 대기', '비용 대기중', ''}
+    # Determine stage for each influencer
     for p in influencers:
         name = p['name']
-        status = p['raw_status'].strip()
-
-        if status == '취소':
+        if p['raw_status'] == '취소':
             p['stage'] = '취소'
-        elif status in NOT_CONFIRMED or not status:
-            p['stage'] = '협의'
         else:
-            # Start at 진행 확정 and escalate
             stage = '진행 확정'
             if name in booking_resolved:
                 stage = '예약 완료'
+                # also override clinic if more specific
                 if booking_resolved[name]:
                     p['clinic'] = booking_resolved[name]
             if name in treatment_resolved:
                 stage = '시술 완료'
-            if name in upload_resolved:
+            if name in posted_resolved:
                 stage = '게시 완료'
             if name in paid_resolved:
                 stage = '비용지급 완료'
             p['stage'] = stage
-
+        # Drop the temp field
         p.pop('raw_status', None)
-
-    # Doctors: 진행 확정 / 게시 완료 / 비용지급 완료 (no clinic visit)
-    for d in doctors:
-        if d['name'] in paid_resolved:
-            d['stage'] = '비용지급 완료'
-        elif d.get('posted'):
-            d['stage'] = '게시 완료'
-        else:
-            d['stage'] = '진행 확정'
-        d.pop('posted', None)
 
     # Doctors: only 진행 확정 / 게시 완료 / 비용지급 완료 (no clinic visit)
     for d in doctors:
@@ -626,6 +655,13 @@ def build():
     # Leads
     leads_total, leads_qualified, leads_timeline = parse_leads(raw['leads'])
 
+    # Content performance posts (optional — only if sheet URL is configured)
+    posts: list[dict] = []
+    if 'content_performance' in raw:
+        posts = parse_content_performance(raw['content_performance'], campaign='influencer')
+    if 'content_performance_doctor' in raw:
+        posts += parse_content_performance(raw['content_performance_doctor'], campaign='doctor')
+
     # Final output
     out = {
         'budget': {
@@ -636,6 +672,7 @@ def build():
         'influencers': all_people,
         'payments': payments,
         'events': events,
+        'posts': posts,
         'inbound_total': leads_total,
         'inbound_qualified': leads_qualified,
         'inbound_timeline': leads_timeline,
@@ -645,16 +682,8 @@ def build():
         }
     }
 
-    # Write to repo root — but preserve content_performance from existing file
-    # (it's updated separately by parse_slack_report.py from Slack messages)
+    # Write to repo root
     out_path = Path(__file__).parent.parent / 'data.json'
-    if out_path.exists():
-        try:
-            existing = json.loads(out_path.read_text(encoding='utf-8'))
-            if 'content_performance' in existing:
-                out['content_performance'] = existing['content_performance']
-        except Exception as e:
-            print(f'[WARN] Could not preserve content_performance: {e}')
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding='utf-8')
 
     # Summary
@@ -665,6 +694,7 @@ def build():
     print(f'  Calendar events: {len(events)}')
     print(f'  Payments: {len(payments)}')
     print(f'  Leads: {leads_total} ({leads_qualified} qualified)')
+    print(f'  Posts: {len(posts)}')
 
 
 if __name__ == '__main__':
