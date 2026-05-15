@@ -3,14 +3,14 @@
     "exchange_rate": 1500.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 963470035.0,
-      "total_usd": 666472.0,
+      "spent_krw": 963495720.0,
+      "total_usd": 666453.0,
       "spent_usd": 642125.0
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 206224765.0,
-      "total_usd": 146605.0,
+      "spent_krw": 206213771.0,
+      "total_usd": 146612.0,
       "spent_usd": 137425.0
     }
   },
@@ -118,7 +118,7 @@
       "tiktok": "@sarahbebelle",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "게시 완료"
     },
     {
       "name": "Cynthia Huang Wang",
@@ -148,7 +148,7 @@
       "tiktok": "@taelerwatson",
       "agency": "CMG Talent",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Alyssa Lynch",
@@ -178,7 +178,7 @@
       "tiktok": "@stephkimmi",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Iman Gharram",
@@ -283,7 +283,7 @@
       "tiktok": "@officialjulissab",
       "agency": "dulcedo talent agent",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Raquel Amdal",
@@ -298,7 +298,7 @@
       "tiktok": "@raquelamdal",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Julia White",
@@ -313,7 +313,7 @@
       "tiktok": "@julia.whiteeee7",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Nica phan",
@@ -343,7 +343,7 @@
       "tiktok": null,
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "게시 완료"
     },
     {
       "name": "Gabriella Juliana Galdorise",
@@ -358,7 +358,7 @@
       "tiktok": "@_gigijuliana",
       "agency": null,
       "type": "influencer",
-      "stage": "예약 완료"
+      "stage": "시술 완료"
     },
     {
       "name": "Sayeh Soltani",
@@ -373,7 +373,7 @@
       "tiktok": "@sayehsoltani",
       "agency": null,
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Alexa Mal",
@@ -508,7 +508,7 @@
       "tiktok": "@sonyased5",
       "agency": "Digital Brand Architects",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Gilly",
@@ -643,7 +643,7 @@
       "tiktok": "@rogerwh0",
       "agency": "rare global",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Jenna Barclay",
@@ -658,7 +658,7 @@
       "tiktok": "@jennaabarclay",
       "agency": "Small Screen INC",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Alyssa Antoci",
@@ -673,7 +673,7 @@
       "tiktok": "@alyssaantocii",
       "agency": "CMG Talent",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Brandon Yoon",
@@ -688,7 +688,7 @@
       "tiktok": "@byo0n",
       "agency": null,
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Mei Leung",
@@ -718,7 +718,7 @@
       "tiktok": "@miahowerton",
       "agency": "Idols + icons",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Rachel Barnes",
@@ -733,7 +733,7 @@
       "tiktok": "@rocky_barnes",
       "agency": "Becca Mgmt Team",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Allison Wong",
@@ -748,7 +748,7 @@
       "tiktok": "@ally_wong",
       "agency": "Digital Brand Architects",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "HyunJi Kim",
@@ -763,7 +763,7 @@
       "tiktok": "@sallykim7_",
       "agency": "Mirae Mgmt Team",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Yasmin",
@@ -808,7 +808,7 @@
       "tiktok": "@sarahesri",
       "agency": "Hesri Mgmt",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Yuri Lee",
@@ -823,7 +823,7 @@
       "tiktok": "@yurileeeee",
       "agency": null,
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Hana Sim",
@@ -838,7 +838,7 @@
       "tiktok": "@davidandhana",
       "agency": "Mirae Mgmt Team",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Anastasia Tupitsyna",
@@ -853,7 +853,7 @@
       "tiktok": "@anastasile",
       "agency": "globaldigital.agency",
       "type": "influencer",
-      "stage": "진행 확정"
+      "stage": "시술 완료"
     },
     {
       "name": "Aylen Park",
@@ -897,7 +897,7 @@
       "tiktok": null,
       "agency": "gersh",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "비용지급 완료"
     },
     {
       "name": "Dr. Charles",
@@ -911,7 +911,7 @@
       "tiktok": null,
       "agency": "melrose marketing",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "비용지급 완료"
     },
     {
       "name": "Dr. Luke Maxfield",
@@ -925,7 +925,7 @@
       "tiktok": null,
       "agency": "melrose marketing",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "비용지급 완료"
     },
     {
       "name": "Miranda Wilson",
@@ -967,7 +967,7 @@
       "tiktok": null,
       "agency": "X",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "비용지급 완료"
     },
     {
       "name": "Dr. Walter",
@@ -981,7 +981,7 @@
       "tiktok": null,
       "agency": "MIONE",
       "type": "doctor",
-      "stage": "게시 완료"
+      "stage": "비용지급 완료"
     }
   ],
   "payments": [
@@ -1372,29 +1372,28 @@
       "clinic": "Medbeauty"
     }
   ],
-  "posts": [],
   "inbound_total": 84,
-  "inbound_qualified": 0,
+  "inbound_qualified": 28,
   "inbound_timeline": [
     {
       "date": "2026-03-21",
       "total": 14,
-      "qualified": 0
+      "qualified": 7
     },
     {
       "date": "2026-03-22",
       "total": 3,
-      "qualified": 0
+      "qualified": 3
     },
     {
       "date": "2026-03-23",
       "total": 4,
-      "qualified": 0
+      "qualified": 2
     },
     {
       "date": "2026-03-24",
       "total": 2,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-03-26",
@@ -1404,7 +1403,7 @@
     {
       "date": "2026-03-27",
       "total": 1,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-03-28",
@@ -1419,17 +1418,17 @@
     {
       "date": "2026-04-02",
       "total": 10,
-      "qualified": 0
+      "qualified": 4
     },
     {
       "date": "2026-04-03",
       "total": 5,
-      "qualified": 0
+      "qualified": 2
     },
     {
       "date": "2026-04-04",
       "total": 3,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-04-05",
@@ -1439,12 +1438,12 @@
     {
       "date": "2026-04-06",
       "total": 3,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-04-07",
       "total": 2,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-04-09",
@@ -1459,7 +1458,7 @@
     {
       "date": "2026-04-11",
       "total": 5,
-      "qualified": 0
+      "qualified": 2
     },
     {
       "date": "2026-04-14",
@@ -1499,7 +1498,7 @@
     {
       "date": "2026-04-27",
       "total": 1,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-04-30",
@@ -1534,7 +1533,7 @@
     {
       "date": "2026-05-10",
       "total": 1,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-05-11",
@@ -1544,7 +1543,7 @@
     {
       "date": "2026-05-13",
       "total": 1,
-      "qualified": 0
+      "qualified": 1
     },
     {
       "date": "2026-05-15",
@@ -1553,7 +1552,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-15T06:45:13.647633Z",
+    "last_built": "2026-05-15T06:50:45.236807Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
