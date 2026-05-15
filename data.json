@@ -1552,7 +1552,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-15T06:55:22.492800Z",
+    "last_built": "2026-05-15T07:09:26.333251Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
@@ -1560,19 +1560,19 @@
   },
   "content_performance": {
     "report_date": "2026-05-14",
-    "last_updated": "2026-05-15T06:55:22.491715Z",
+    "last_updated": "2026-05-15T07:09:26.332708Z",
     "combined": {
       "views": 1051611,
       "er": 1.94,
-      "cpv": null
+      "cpv": 0.45
     },
     "california": {
       "views": 849570,
       "likes": 13758,
       "saves": 964,
       "comments": 377,
-      "er": null,
-      "cpv": null,
+      "er": 1.78,
+      "cpv": 0.42,
       "posts": [
         {
           "handle": "@sarahlaguda",
@@ -1629,8 +1629,8 @@
       "likes": 4086,
       "saves": 956,
       "comments": 238,
-      "er": null,
-      "cpv": null,
+      "er": 2.61,
+      "cpv": 0.5,
       "posts": []
     }
   }
