@@ -151,21 +151,6 @@
       "stage": "게시 완료"
     },
     {
-      "name": "Alyssa Lynch",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 25000.0,
-      "cost_krw": 37500000.0,
-      "views_ig": 34200.0,
-      "views_tt": 8100.0,
-      "total_views": 42300.0,
-      "instagram": "@alyssalynch",
-      "tiktok": "@alyssalynch",
-      "agency": "beccamgmt",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
       "name": "Stephani kim",
       "clinic": "Premier",
       "city": "San Francisco",
@@ -316,21 +301,6 @@
       "stage": "시술 완료"
     },
     {
-      "name": "Nica phan",
-      "clinic": null,
-      "city": "San Francisco",
-      "cost_usd": 4000.0,
-      "cost_krw": 6000000.0,
-      "views_ig": 15400.0,
-      "views_tt": 74100.0,
-      "total_views": 89500.0,
-      "instagram": "@nicaphan",
-      "tiktok": "@nicaphan",
-      "agency": null,
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
       "name": "Claire MJ Park",
       "clinic": "Buena",
       "city": "Los Angeles",
@@ -391,21 +361,6 @@
       "stage": "시술 완료"
     },
     {
-      "name": "Paige Sheffield",
-      "clinic": null,
-      "city": "LA",
-      "cost_usd": 3000.0,
-      "cost_krw": 4500000.0,
-      "views_ig": 86200.0,
-      "views_tt": 30700.0,
-      "total_views": 116900.0,
-      "instagram": "@paigeejenna",
-      "tiktok": "@paigeejenna",
-      "agency": null,
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
       "name": "Shima Katouzian",
       "clinic": "Premier",
       "city": "Los Angeles. California",
@@ -419,51 +374,6 @@
       "agency": null,
       "type": "influencer",
       "stage": "시술 완료"
-    },
-    {
-      "name": "Ashanty Romero",
-      "clinic": null,
-      "city": "San Leandro",
-      "cost_usd": 500.0,
-      "cost_krw": 750000.0,
-      "views_ig": 91500.0,
-      "views_tt": 56100.0,
-      "total_views": 147600.0,
-      "instagram": "@ashantyy9800",
-      "tiktok": "@ashantyy9800",
-      "agency": "X",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
-      "name": "Caroline Remick",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 4000.0,
-      "cost_krw": 6000000.0,
-      "views_ig": 0,
-      "views_tt": 165800.0,
-      "total_views": 165800.0,
-      "instagram": null,
-      "tiktok": "@sconeclone",
-      "agency": "Rachel",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
-      "name": "Mckenna Salazar",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 15000.0,
-      "cost_krw": 22500000.0,
-      "views_ig": 35000.0,
-      "views_tt": 134900.0,
-      "total_views": 169900.0,
-      "instagram": "@mckennasalazar",
-      "tiktok": "@mckennasalazar",
-      "agency": "Select Management Group",
-      "type": "influencer",
-      "stage": "취소"
     },
     {
       "name": "Francis Lola",
@@ -481,21 +391,6 @@
       "stage": "시술 완료"
     },
     {
-      "name": "Lydia Kim",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 9300.0,
-      "cost_krw": 13950000.0,
-      "views_ig": 140900.0,
-      "views_tt": 35200.0,
-      "total_views": 176100.0,
-      "instagram": "@leedyyaa",
-      "tiktok": "@lydia.chae",
-      "agency": null,
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
       "name": "Sonya Sed",
       "clinic": "Medbeauty",
       "city": "Los Angeles",
@@ -509,21 +404,6 @@
       "agency": "Digital Brand Architects",
       "type": "influencer",
       "stage": "게시 완료"
-    },
-    {
-      "name": "Gilly",
-      "clinic": null,
-      "city": "San Francisco",
-      "cost_usd": 19500.0,
-      "cost_krw": 29250000.0,
-      "views_ig": 107400.0,
-      "views_tt": 78800.0,
-      "total_views": 186200.0,
-      "instagram": "@glambygilly",
-      "tiktok": "@glambygilly",
-      "agency": "CMG Talent",
-      "type": "influencer",
-      "stage": "취소"
     },
     {
       "name": "Nandi Chapman",
@@ -556,36 +436,6 @@
       "stage": "시술 완료"
     },
     {
-      "name": "Irene Choi",
-      "clinic": null,
-      "city": "Costa Mesa",
-      "cost_usd": 8000.0,
-      "cost_krw": 12000000.0,
-      "views_ig": 118000.0,
-      "views_tt": 99500.0,
-      "total_views": 217500.0,
-      "instagram": "@ireneykchoi",
-      "tiktok": "@ireneykchoi",
-      "agency": "X",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
-      "name": "Dewy Louie",
-      "clinic": null,
-      "city": "San Francisco",
-      "cost_usd": 15300.0,
-      "cost_krw": 22950000.0,
-      "views_ig": 20400.0,
-      "views_tt": 206500.0,
-      "total_views": 226900.0,
-      "instagram": "@dewylouie",
-      "tiktok": "@dewylouie",
-      "agency": "link creator mgmt",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
       "name": "Esther Xiong",
       "clinic": "Premier",
       "city": "San Diego",
@@ -614,21 +464,6 @@
       "agency": "Digital Brand Architects",
       "type": "influencer",
       "stage": "시술 완료"
-    },
-    {
-      "name": "Shelly Kowatch",
-      "clinic": null,
-      "city": "San Francisco",
-      "cost_usd": 10000.0,
-      "cost_krw": 15000000.0,
-      "views_ig": 163300.0,
-      "views_tt": 90000.0,
-      "total_views": 253300.0,
-      "instagram": "@shellykowatch",
-      "tiktok": "@shellykowatch",
-      "agency": null,
-      "type": "influencer",
-      "stage": "취소"
     },
     {
       "name": "Roger Ma",
@@ -764,36 +599,6 @@
       "agency": "Mirae Mgmt Team",
       "type": "influencer",
       "stage": "시술 완료"
-    },
-    {
-      "name": "Yasmin",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 13600.0,
-      "cost_krw": 20400000.0,
-      "views_ig": 251800.0,
-      "views_tt": 333000.0,
-      "total_views": 584800.0,
-      "instagram": "@beautyybird",
-      "tiktok": "@beautyybird",
-      "agency": "Digital Brand Architects",
-      "type": "influencer",
-      "stage": "취소"
-    },
-    {
-      "name": "Syera",
-      "clinic": null,
-      "city": null,
-      "cost_usd": 0,
-      "cost_krw": 0.0,
-      "views_ig": 73500.0,
-      "views_tt": 519500.0,
-      "total_views": 593000.0,
-      "instagram": "@syerasyntyche",
-      "tiktok": "@syerasyntyche",
-      "agency": null,
-      "type": "influencer",
-      "stage": "취소"
     },
     {
       "name": "Sara Hesri",
@@ -1611,6 +1416,18 @@
           "is_new": false
         },
         {
+          "handle": "@officialjulissab",
+          "date": "05.08",
+          "views": 2197,
+          "likes": 167,
+          "comments": 4,
+          "saves": 58,
+          "cpv": 1.6,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@officialjulissab/video/7637310904912170271",
+          "is_new": false
+        },
+        {
           "handle": "@yurileeeee",
           "date": "05.08",
           "views": 10700,
@@ -1620,6 +1437,150 @@
           "cpv": null,
           "platform": "TK",
           "link": "https://www.tiktok.com/@yurileeeee/video/7637521695330585869",
+          "is_new": false
+        },
+        {
+          "handle": "@officialjulissab",
+          "date": "05.08",
+          "views": 30730,
+          "likes": 1220,
+          "comments": 37,
+          "saves": 0,
+          "cpv": 0.1,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYDoYU1vUBa/",
+          "is_new": false
+        },
+        {
+          "handle": "@sonyased5",
+          "date": "05.07",
+          "views": 25519,
+          "likes": 278,
+          "comments": 7,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DYDSBcxSy7E/",
+          "is_new": false
+        },
+        {
+          "handle": "@sonyased5",
+          "date": "05.07",
+          "views": 26200,
+          "likes": 816,
+          "comments": 16,
+          "saves": 74,
+          "cpv": 0.2,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@sonyased5/video/7637252419885272334",
+          "is_new": false
+        },
+        {
+          "handle": "@sarahesri",
+          "date": "05.05",
+          "views": 105500,
+          "likes": 2830,
+          "comments": 32,
+          "saves": 365,
+          "cpv": 0.1,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@sarahesri/video/7636439634368679199",
+          "is_new": false
+        },
+        {
+          "handle": "@sarahesri",
+          "date": "05.05",
+          "views": 307319,
+          "likes": null,
+          "comments": 52,
+          "saves": 0,
+          "cpv": 0.0,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX9oG4ExVVi/",
+          "is_new": false
+        },
+        {
+          "handle": "@jennaabarclay",
+          "date": "05.04",
+          "views": 7968,
+          "likes": 383,
+          "comments": 7,
+          "saves": 25,
+          "cpv": 0.9,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@jennaabarclay/video/7636123238254251277",
+          "is_new": false
+        },
+        {
+          "handle": "@taelerwatson",
+          "date": "05.04",
+          "views": 1310,
+          "likes": 150,
+          "comments": 12,
+          "saves": 9,
+          "cpv": 1.3,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@taelerwatson/video/7636070847060430110",
+          "is_new": false
+        },
+        {
+          "handle": "@clairemjpark",
+          "date": "05.04",
+          "views": 22779,
+          "likes": null,
+          "comments": 35,
+          "saves": 0,
+          "cpv": 0.4,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7HDbdJYNm/",
+          "is_new": false
+        },
+        {
+          "handle": "@taelerwatson",
+          "date": "05.04",
+          "views": 25169,
+          "likes": 348,
+          "comments": 15,
+          "saves": 0,
+          "cpv": 0.1,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7Ds4xhE0d/",
+          "is_new": false
+        },
+        {
+          "handle": "@jennaabarclay",
+          "date": "05.04",
+          "views": 31200,
+          "likes": 412,
+          "comments": 13,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7c8fvBVsQ/",
+          "is_new": false
+        },
+        {
+          "handle": "@_brandonyoon_",
+          "date": "05.04",
+          "views": 45483,
+          "likes": 1844,
+          "comments": 24,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DX7RcsVuwkx/",
+          "is_new": false
+        },
+        {
+          "handle": "@byo0n",
+          "date": "05.04",
+          "views": 107800,
+          "likes": 3550,
+          "comments": 62,
+          "saves": 340,
+          "cpv": 0.1,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@byo0n/video/7636098601009057038",
           "is_new": false
         }
       ]
@@ -1631,7 +1592,116 @@
       "comments": 238,
       "er": 2.61,
       "cpv": 0.5,
-      "posts": []
+      "posts": [
+        {
+          "handle": "@dr.ljmaxfield",
+          "date": "04.09",
+          "views": 46625,
+          "likes": 563,
+          "comments": 23,
+          "saves": 0,
+          "cpv": 0.2,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DW7BgbTD5Fw/",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd1",
+          "date": "03.20",
+          "views": 17100,
+          "likes": 806,
+          "comments": 23,
+          "saves": 451,
+          "cpv": 1.0,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drcharlesmd1/video/7619466778271419679",
+          "is_new": false
+        },
+        {
+          "handle": "@drcharlesmd",
+          "date": "03.20",
+          "views": 57163,
+          "likes": 1378,
+          "comments": 83,
+          "saves": 0,
+          "cpv": 0.3,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DWH2NBnkSqU/",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.09",
+          "views": 3228,
+          "likes": 56,
+          "comments": 3,
+          "saves": 42,
+          "cpv": 0.1,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drpavlou/video/7615300845248351506",
+          "is_new": false
+        },
+        {
+          "handle": "@drmadalyn",
+          "date": "03.09",
+          "views": 9344,
+          "likes": 197,
+          "comments": 11,
+          "saves": 72,
+          "cpv": 1.0,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@drmadalyn/video/7615348500087180557",
+          "is_new": false
+        },
+        {
+          "handle": "@drmadalyn",
+          "date": "03.09",
+          "views": 23317,
+          "likes": null,
+          "comments": 13,
+          "saves": 0,
+          "cpv": 0.4,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DVq43nRkb2x/",
+          "is_new": false
+        },
+        {
+          "handle": "@denverskindoc",
+          "date": "03.06",
+          "views": 15000,
+          "likes": 763,
+          "comments": 39,
+          "saves": 391,
+          "cpv": 0.8,
+          "platform": "TK",
+          "link": "https://www.tiktok.com/@denverskindoc/video/7613992797015723294",
+          "is_new": false
+        },
+        {
+          "handle": "@denverskindoc",
+          "date": "03.06",
+          "views": 18330,
+          "likes": 325,
+          "comments": 36,
+          "saves": 0,
+          "cpv": 0.7,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DVi-E6JDk7Y/",
+          "is_new": false
+        },
+        {
+          "handle": "@drpavlou",
+          "date": "03.06",
+          "views": 11934,
+          "likes": null,
+          "comments": 7,
+          "saves": 0,
+          "cpv": 0.0,
+          "platform": "IG",
+          "link": "https://www.instagram.com/p/DVjcXu8Dyu-/",
+          "is_new": false
+        }
+      ]
     }
   }
 }
