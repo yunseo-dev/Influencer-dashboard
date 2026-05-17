@@ -1372,7 +1372,7 @@
       "clinic": "Premier"
     }
   ],
-  "inbound_total": 98,
+  "inbound_total": 100,
   "inbound_qualified": 29,
   "inbound_timeline": [
     {
@@ -1557,12 +1557,12 @@
     },
     {
       "date": "2026-05-17",
-      "total": 1,
+      "total": 3,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-05-17T11:46:43.518039Z",
+    "last_built": "2026-05-17T15:42:02.222461Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
