@@ -1567,7 +1567,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-05-18T00:02:16.733274Z",
+    "last_built": "2026-05-18T00:36:21.937734Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
@@ -1575,19 +1575,19 @@
   },
   "content_performance": {
     "report_date": "2026-05-17",
-    "last_updated": "2026-05-18T00:02:16.732324Z",
+    "last_updated": "2026-05-18T00:36:21.936773Z",
     "combined": {
-      "views": 3206811,
-      "er": 2.97,
-      "cpv": 0.46
+      "views": 3217049,
+      "er": 2.79,
+      "cpv": 0.24
     },
     "california": {
-      "views": 2318701,
-      "likes": 76018,
+      "views": 2676556,
+      "likes": 78886,
       "saves": 2315,
-      "comments": 678,
-      "er": 3.41,
-      "cpv": 0.45,
+      "comments": 707,
+      "er": 3.06,
+      "cpv": 0.44,
       "posts": [
         {
           "handle": "@sarahlaguda",
@@ -1820,13 +1820,13 @@
         {
           "handle": "@adrianabernardii",
           "date": "05.16",
-          "views": 14055,
-          "likes": 195,
-          "comments": 1,
-          "saves": 0,
+          "views": 15900,
+          "likes": 210,
+          "comments": 2,
+          "saves": 6,
           "cpv": null,
           "platform": "IG",
-          "link": "https://www.instagram.com/p/DYYX4w6sNLA/",
+          "link": "https://www.tiktok.com/@adrianabernardii/video/7640293866276506910",
           "is_new": true
         },
         {
