@@ -9,8 +9,8 @@
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 207162691.0,
-      "total_usd": 145941.0,
+      "spent_krw": 208182384.0,
+      "total_usd": 145226.0,
       "spent_usd": 137425.0
     }
   },
@@ -733,7 +733,7 @@
       "tiktok": "@rocky_barnes",
       "agency": "Becca Mgmt Team",
       "type": "influencer",
-      "stage": "예약 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Roger Ma",
@@ -808,7 +808,7 @@
       "tiktok": "@morekeila",
       "agency": "UnderCurrent Talent",
       "type": "influencer",
-      "stage": "시술 완료"
+      "stage": "게시 완료"
     },
     {
       "name": "Yuri Lee",
@@ -1510,7 +1510,7 @@
       "clinic": "Buena"
     }
   ],
-  "inbound_total": 520,
+  "inbound_total": 524,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -1770,12 +1770,12 @@
     },
     {
       "date": "2026-06-01",
-      "total": 13,
+      "total": 17,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-05-31T23:32:53.590757Z",
+    "last_built": "2026-06-01T01:58:17.092270Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
