@@ -1522,7 +1522,7 @@
       "clinic": "Medbeauty"
     }
   ],
-  "inbound_total": 648,
+  "inbound_total": 651,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -1807,12 +1807,12 @@
     },
     {
       "date": "2026-06-06",
-      "total": 17,
+      "total": 20,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-06-06T13:45:27.370983Z",
+    "last_built": "2026-06-06T15:02:10.294075Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
