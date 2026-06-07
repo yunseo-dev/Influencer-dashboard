@@ -3,8 +3,8 @@
     "exchange_rate": 1559.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 1001246249.0,
-      "total_usd": 641326.0,
+      "spent_krw": 1001304040.0,
+      "total_usd": 641290.0,
       "spent_usd": 642125.0
     },
     "doctor": {
@@ -1522,7 +1522,7 @@
       "clinic": "Medbeauty"
     }
   ],
-  "inbound_total": 685,
+  "inbound_total": 684,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -1817,12 +1817,12 @@
     },
     {
       "date": "2026-06-08",
-      "total": 11,
+      "total": 10,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-06-07T20:46:08.796995Z",
+    "last_built": "2026-06-07T21:53:17.033883Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
