@@ -9,8 +9,8 @@
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 214282680.0,
-      "total_usd": 141092.0,
+      "spent_krw": 214295048.0,
+      "total_usd": 141084.0,
       "spent_usd": 137425.0
     }
   },
@@ -1522,7 +1522,7 @@
       "clinic": "Medbeauty"
     }
   ],
-  "inbound_total": 682,
+  "inbound_total": 685,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -1817,12 +1817,12 @@
     },
     {
       "date": "2026-06-08",
-      "total": 8,
+      "total": 11,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-06-07T19:23:14.410885Z",
+    "last_built": "2026-06-07T20:46:08.796995Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
