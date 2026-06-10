@@ -3,14 +3,14 @@
     "exchange_rate": 1520.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 976058896.0,
-      "total_usd": 657875.0,
+      "spent_krw": 976318956.0,
+      "total_usd": 657700.0,
       "spent_usd": 642125.0
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 208892184.0,
-      "total_usd": 144733.0,
+      "spent_krw": 208964332.0,
+      "total_usd": 144683.0,
       "spent_usd": 137425.0
     }
   },
@@ -1060,12 +1060,6 @@
   ],
   "events": [
     {
-      "date": "2026-04-14",
-      "name": "Sonya",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
       "date": "2026-04-16",
       "name": "Alyssa",
       "type": "treatment",
@@ -1108,52 +1102,10 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-04-17",
-      "name": "Julia",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-17",
-      "name": "Aylen",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-17",
-      "name": "Sonia",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
       "date": "2026-04-18",
       "name": "Brandon",
       "type": "treatment",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-04-20",
-      "name": "Sara",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-20",
-      "name": "Weronika",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-20",
-      "name": "Nandi",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-20",
-      "name": "Cynthia",
-      "type": "treatment",
-      "clinic": "Premier"
     },
     {
       "date": "2026-04-21",
@@ -1174,28 +1126,10 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-04-21",
-      "name": "Niki",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-21",
-      "name": "Shima",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
       "date": "2026-04-22",
       "name": "Yuri",
       "type": "treatment",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-04-22",
-      "name": "Iman",
-      "type": "treatment",
-      "clinic": "Premier"
     },
     {
       "date": "2026-04-23",
@@ -1204,100 +1138,16 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-04-23",
-      "name": "Mia",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-23",
-      "name": "Roger",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-23",
-      "name": "Adriana",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-04-23",
-      "name": "Taeler",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-04-24",
-      "name": "Francis",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-24",
-      "name": "Stephany",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
       "date": "2026-04-25",
       "name": "Kay",
       "type": "treatment",
       "clinic": "Buena"
     },
     {
-      "date": "2026-04-27",
-      "name": "Hana",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-27",
-      "name": "David",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-27",
-      "name": "Diana",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-27",
-      "name": "Stephani",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
       "date": "2026-04-28",
       "name": "Lilit",
       "type": "treatment",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-04-29",
-      "name": "Allison",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-29",
-      "name": "Keila",
-      "type": "treatment",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-04-30",
-      "name": "Anastasia",
-      "type": "treatment",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-04-30",
-      "name": "Esther",
-      "type": "treatment",
-      "clinic": "Premier"
     },
     {
       "date": "2026-05-04",
@@ -1316,18 +1166,6 @@
       "name": "Brandon",
       "type": "upload",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-05-04",
-      "name": "Taeler",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-05-05",
-      "name": "Sara",
-      "type": "upload",
-      "clinic": "Medbeauty"
     },
     {
       "date": "2026-05-06",
@@ -1348,12 +1186,6 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-05-07",
-      "name": "Sonya",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
       "date": "2026-05-10",
       "name": "Sarah",
       "type": "upload",
@@ -1366,100 +1198,16 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-05-15",
-      "name": "Niki",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-15",
-      "name": "Weronika",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-15",
-      "name": "Roger",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-15",
-      "name": "Anastasia",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-05-15",
-      "name": "Shima",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-05-15",
-      "name": "Adriana",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-05-16",
-      "name": "Mia",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
       "date": "2026-05-18",
       "name": "Mei",
       "type": "upload",
       "clinic": "Buena"
     },
     {
-      "date": "2026-05-18",
-      "name": "Aylen",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-18",
-      "name": "Diana",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-18",
-      "name": "Francis",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-18",
-      "name": "Cynthia",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
       "date": "2026-05-19",
       "name": "Alexa",
       "type": "upload",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-05-19",
-      "name": "Nandi",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
-      "date": "2026-05-20",
-      "name": "Stephany",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
-      "date": "2026-05-20",
-      "name": "Iman",
-      "type": "upload",
-      "clinic": "Premier"
     },
     {
       "date": "2026-05-21",
@@ -1480,22 +1228,10 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-05-25",
-      "name": "Esther",
-      "type": "upload",
-      "clinic": "Premier"
-    },
-    {
       "date": "2026-05-26",
       "name": "Sayeh",
       "type": "upload",
       "clinic": "Buena"
-    },
-    {
-      "date": "2026-05-28",
-      "name": "Hana",
-      "type": "upload",
-      "clinic": "Medbeauty"
     },
     {
       "date": "2026-05-30",
@@ -1504,28 +1240,28 @@
       "clinic": "Buena"
     },
     {
-      "date": "2026-05-30",
-      "name": "Keila",
-      "type": "upload",
-      "clinic": "Medbeauty"
-    },
-    {
       "date": "2026-06-01",
       "name": "HyunJi",
       "type": "upload",
       "clinic": "Buena"
     },
     {
-      "date": "2026-06-05",
-      "name": "Allison",
-      "type": "upload",
-      "clinic": "Medbeauty"
+      "date": "2026-06-11",
+      "name": "Kara",
+      "type": "treatment",
+      "clinic": "Buena"
     },
     {
-      "date": "2026-06-07",
-      "name": "Stephani",
-      "type": "upload",
-      "clinic": "Premier"
+      "date": "2026-06-16",
+      "name": "Teala",
+      "type": "treatment",
+      "clinic": "Buena"
+    },
+    {
+      "date": "2026-06-17",
+      "name": "Matty",
+      "type": "treatment",
+      "clinic": "Buena"
     }
   ],
   "inbound_total": 731,
@@ -1843,7 +1579,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-06-10T15:59:21.282791Z",
+    "last_built": "2026-06-10T18:37:20.885321Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
