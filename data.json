@@ -1895,17 +1895,17 @@
     },
     {
       "date": "2026-06-14",
-      "total": 22,
+      "total": 21,
       "qualified": 0
     },
     {
       "date": "2026-06-15",
-      "total": 8,
+      "total": 9,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-06-14T20:48:54.568042Z",
+    "last_built": "2026-06-14T21:59:15.920657Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
