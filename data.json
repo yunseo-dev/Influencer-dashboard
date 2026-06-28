@@ -1630,7 +1630,7 @@
       "clinic": "Buena"
     }
   ],
-  "inbound_total": 1040,
+  "inbound_total": 1042,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -2017,10 +2017,15 @@
       "date": "2026-06-28",
       "total": 20,
       "qualified": 0
+    },
+    {
+      "date": "2026-06-29",
+      "total": 2,
+      "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-06-28T14:49:06.850661Z",
+    "last_built": "2026-06-28T16:00:00.787250Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
