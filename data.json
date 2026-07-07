@@ -9,8 +9,8 @@
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 209239869.0,
-      "total_usd": 144492.0,
+      "spent_krw": 208053205.0,
+      "total_usd": 145316.0,
       "spent_usd": 137425.0
     }
   },
@@ -1636,7 +1636,7 @@
       "clinic": "Buena"
     }
   ],
-  "inbound_total": 1154,
+  "inbound_total": 1155,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -2068,10 +2068,15 @@
       "date": "2026-07-07",
       "total": 19,
       "qualified": 0
+    },
+    {
+      "date": "2026-07-08",
+      "total": 1,
+      "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-07-07T14:35:39.685874Z",
+    "last_built": "2026-07-07T16:57:57.597285Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
