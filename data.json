@@ -3,14 +3,14 @@
     "exchange_rate": 1499.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 962965091.0,
-      "total_usd": 667080.0,
+      "spent_krw": 963016481.0,
+      "total_usd": 667046.0,
       "spent_usd": 642375.0
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 206009695.0,
-      "total_usd": 146758.0,
+      "spent_krw": 206020689.0,
+      "total_usd": 146750.0,
       "spent_usd": 137425.0
     }
   },
@@ -1636,7 +1636,7 @@
       "clinic": "Buena"
     }
   ],
-  "inbound_total": 1211,
+  "inbound_total": 1217,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -2091,12 +2091,12 @@
     },
     {
       "date": "2026-07-12",
-      "total": 4,
+      "total": 10,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-07-12T01:10:45.663763Z",
+    "last_built": "2026-07-12T04:42:37.892379Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
