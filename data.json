@@ -3,14 +3,14 @@
     "exchange_rate": 1470.0,
     "influencer": {
       "total_krw": 1000000000.0,
-      "spent_krw": 944567471.0,
-      "total_usd": 680074.0,
+      "spent_krw": 944355488.0,
+      "total_usd": 680226.0,
       "spent_usd": 642375.0
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 202082088.0,
-      "total_usd": 149610.0,
+      "spent_krw": 202028493.0,
+      "total_usd": 149650.0,
       "spent_usd": 137425.0
     }
   },
@@ -2171,7 +2171,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-07-27T08:49:03.599684Z",
+    "last_built": "2026-07-27T12:02:11.725179Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
