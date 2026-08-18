@@ -9,8 +9,8 @@
     },
     "doctor": {
       "total_krw": 220000000.0,
-      "spent_krw": 193943093.0,
-      "total_usd": 155889.0,
+      "spent_krw": 193937596.0,
+      "total_usd": 155893.0,
       "spent_usd": 137425.0
     }
   },
@@ -2281,7 +2281,7 @@
     }
   ],
   "meta": {
-    "last_built": "2026-08-18T08:57:29.844435Z",
+    "last_built": "2026-08-18T09:39:16.687162Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
