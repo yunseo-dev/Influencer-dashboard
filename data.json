@@ -4,7 +4,7 @@
     "influencer": {
       "total_krw": 1000000000.0,
       "spent_krw": 861803876.0,
-      "total_usd": 745386.0,
+      "total_usd": 745384.0,
       "spent_usd": 642375.0
     },
     "doctor": {
@@ -1636,7 +1636,7 @@
       "clinic": "Buena"
     }
   ],
-  "inbound_total": 1925,
+  "inbound_total": 1926,
   "inbound_qualified": 51,
   "inbound_timeline": [
     {
@@ -2411,12 +2411,12 @@
     },
     {
       "date": "2026-09-14",
-      "total": 4,
+      "total": 5,
       "qualified": 0
     }
   ],
   "meta": {
-    "last_built": "2026-09-13T17:32:21.502144Z",
+    "last_built": "2026-09-13T19:44:51.680871Z",
     "pair_secondaries": [
       "David Cho",
       "Sonia Lee"
